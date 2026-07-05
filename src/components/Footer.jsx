@@ -5,7 +5,7 @@ export default function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="bg-ink-ivory border-t border-ink-stone/20 py-12">
+    <footer className="marble-bg border-t border-ink-stone/20 py-12">
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6 text-center">
         <Logo className="w-10 h-10" color="#000000" />
         <p className="font-serif text-sm tracking-widest2 uppercase">Atelier Noble Ink</p>

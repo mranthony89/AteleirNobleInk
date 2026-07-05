@@ -32,15 +32,13 @@ export default function WelcomeOverlay() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-ink-ivory bg-marble bg-cover bg-center px-6 transition-opacity duration-400 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center marble-bg px-6 transition-opacity duration-400 ${
         closing ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
       role="dialog"
       aria-modal="true"
       aria-label="Selezione lingua"
     >
-      <div className="absolute inset-0 bg-ink-ivory/60" />
-
       <div className="relative z-10 flex flex-col items-center text-center max-w-md w-full">
         <Logo className="w-20 h-20 md:w-24 md:h-24 mb-6" color="#000000" />
 

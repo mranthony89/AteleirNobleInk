@@ -8,9 +8,7 @@ const STORAGE_KEY = 'atelier-noble-ink-lang'
 function detectDefaultLanguage() {
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored && translations[stored]) return stored
-  const browserLang = navigator.language?.slice(0, 2)
-  if (browserLang && translations[browserLang]) return browserLang
-  return 'it'
+  return 'es'
 }
 
 export function LanguageProvider({ children }) {

@@ -8,9 +8,8 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink-ivory bg-marble bg-cover bg-center"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden marble-bg"
     >
-      <div className="absolute inset-0 bg-ink-ivory/40" />
 
       <div className="relative z-10 flex flex-col items-center text-center px-6 pt-24">
         <Logo className="w-28 h-28 md:w-36 md:h-36 mb-6" color="#000000" />

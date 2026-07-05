@@ -19,9 +19,6 @@ export default {
       letterSpacing: {
         widest2: '0.25em',
       },
-      backgroundImage: {
-        marble: "url('/marble-texture.svg')",
-      },
     },
   },
   plugins: [],
