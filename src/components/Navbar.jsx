@@ -28,10 +28,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-3">
-          <Logo className="w-10 h-10" color="#000000" />
-          <span className="font-serif tracking-widest2 text-sm md:text-base">
-            ATELIER NOBLE INK
+        <a href="#top" className="flex items-center gap-3 text-left">
+          <Logo className="w-9 h-9 md:w-10 md:h-10 shrink-0" color="#000000" />
+          <span className="flex flex-col leading-tight">
+            <span className="font-serif tracking-widest2 text-xs md:text-sm uppercase">
+              Atelier Noble Ink
+            </span>
+            <span className="font-serif tracking-[0.3em] text-[9px] md:text-[10px] uppercase text-ink-stone">
+              Tattoo Studio
+            </span>
           </span>
         </a>
 

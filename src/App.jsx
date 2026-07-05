@@ -8,6 +8,7 @@ import Gallery from './components/Gallery.jsx'
 import Philosophy from './components/Philosophy.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Philosophy />
         <Contact />
         <Footer />
+        <ScrollToTop />
       </div>
     </LanguageProvider>
   )
