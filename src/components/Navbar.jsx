@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react'
 import Logo from './Logo.jsx'
-
-const links = [
-  { href: '#chi-siamo', label: 'Chi Siamo' },
-  { href: '#servizi', label: 'Servizi' },
-  { href: '#galleria', label: 'Galleria' },
-  { href: '#artisti', label: 'Filosofia' },
-  { href: '#contatti', label: 'Contatti' },
-]
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 export default function Navbar() {
+  const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+
+  const links = [
+    { href: '#chi-siamo', label: t.nav.about },
+    { href: '#servizi', label: t.nav.services },
+    { href: '#galleria', label: t.nav.gallery },
+    { href: '#artisti', label: t.nav.philosophy },
+    { href: '#contatti', label: t.nav.contact },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -47,7 +49,7 @@ export default function Navbar() {
           href="#contatti"
           className="hidden md:inline-block border border-ink-black px-5 py-2 font-serif text-sm tracking-wide hover:bg-ink-black hover:text-ink-ivory transition-colors"
         >
-          Prenota
+          {t.nav.book}
         </a>
 
         <button
@@ -73,7 +75,7 @@ export default function Navbar() {
             ))}
             <li>
               <a href="#contatti" onClick={() => setOpen(false)} className="text-ink-gold">
-                Prenota
+                {t.nav.book}
               </a>
             </li>
           </ul>

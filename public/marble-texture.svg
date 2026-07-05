@@ -1,14 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
-  <rect width="800" height="800" fill="#F7F5F0"/>
-  <g stroke="#DAAF37" fill="none" opacity="0.35">
-    <path d="M-20 120 C 150 80, 250 200, 420 140 S 700 60, 860 160" stroke-width="1.5"/>
-    <path d="M-40 340 C 120 300, 260 420, 400 360 S 680 300, 840 380" stroke-width="1"/>
-    <path d="M-30 560 C 140 520, 300 640, 460 580 S 720 520, 850 600" stroke-width="1.2"/>
-    <path d="M60 -20 C 100 150, 40 260, 120 420 S 60 640, 140 820" stroke-width="0.8"/>
-    <path d="M600 -30 C 640 140, 560 260, 640 420 S 580 640, 660 820" stroke-width="1"/>
-  </g>
-  <g stroke="#5A5A5A" fill="none" opacity="0.08">
-    <path d="M-20 220 C 180 180, 260 320, 460 260 S 720 200, 860 280" stroke-width="1"/>
-    <path d="M-30 460 C 160 420, 320 540, 480 480 S 700 420, 850 500" stroke-width="1"/>
+  <defs>
+    <linearGradient id="base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F5F0"/>
+      <stop offset="45%" stop-color="#EFEAE1"/>
+      <stop offset="100%" stop-color="#E8E0D2"/>
+    </linearGradient>
+    <linearGradient id="goldVein" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DAAF37" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#DAAF37" stop-opacity="0.9"/>
+      <stop offset="55%" stop-color="#F3D77C" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#DAAF37" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soften"><feGaussianBlur stdDeviation="0.6"/></filter>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#base)"/>
+
+  <g fill="none" filter="url(#soften)">
+    <path d="M-40 140 C 140 90, 260 230, 430 160 S 720 70, 860 190" stroke="url(#goldVein)" stroke-width="3.5"/>
+    <path d="M-30 150 C 150 100, 270 240, 440 168 S 730 78, 870 198" stroke="#DAAF37" stroke-opacity="0.25" stroke-width="0.8"/>
+
+    <path d="M-50 380 C 130 330, 300 470, 420 380 S 700 300, 850 400" stroke="url(#goldVein)" stroke-width="2.5"/>
+    <path d="M-40 392 C 140 340, 310 480, 430 392 S 710 310, 860 410" stroke="#DAAF37" stroke-opacity="0.2" stroke-width="0.7"/>
+
+    <path d="M-30 610 C 150 560, 320 690, 470 610 S 740 540, 860 630" stroke="url(#goldVein)" stroke-width="3"/>
+
+    <path d="M120 -30 C 160 160, 60 280, 150 460 S 70 700, 170 840" stroke="url(#goldVein)" stroke-width="2" transform="rotate(6 400 400)"/>
+    <path d="M640 -40 C 690 150, 590 280, 680 460 S 600 700, 700 840" stroke="url(#goldVein)" stroke-width="1.6" transform="rotate(-4 400 400)"/>
+
+    <path d="M-20 250 C 200 210, 280 330, 480 270 S 720 220, 850 300" stroke="#5A5A5A" stroke-opacity="0.10" stroke-width="1"/>
+    <path d="M-30 500 C 170 460, 330 560, 480 500 S 700 440, 850 520" stroke="#5A5A5A" stroke-opacity="0.08" stroke-width="1"/>
   </g>
 </svg>

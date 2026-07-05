@@ -1,12 +1,16 @@
 import Logo from './Logo.jsx'
+import SubtleDivider from './SubtleDivider.jsx'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section
       id="top"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink-ivory bg-marble bg-cover bg-center"
     >
-      <div className="absolute inset-0 bg-ink-ivory/70" />
+      <div className="absolute inset-0 bg-ink-ivory/40" />
 
       <div className="relative z-10 flex flex-col items-center text-center px-6 pt-24">
         <Logo className="w-28 h-28 md:w-36 md:h-36 mb-6" color="#000000" />
@@ -15,13 +19,13 @@ export default function Hero() {
           Atelier Noble Ink
         </h1>
         <p className="font-serif text-sm md:base tracking-[0.4em] uppercase text-ink-stone mt-3">
-          Tattoo Studio
+          {t.hero.studio}
         </p>
 
-        <div className="w-16 h-px bg-ink-gold my-8" />
+        <SubtleDivider className="my-8" />
 
         <p className="font-serif text-lg md:text-2xl max-w-xl text-ink-charcoal italic">
-          "Ogni tatuaggio racconta una storia senza tempo."
+          {t.hero.quote}
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -29,13 +33,13 @@ export default function Hero() {
             href="#contatti"
             className="border border-ink-black px-8 py-3 font-serif text-sm tracking-widest2 uppercase hover:bg-ink-black hover:text-ink-ivory transition-colors"
           >
-            Prenota una Consulenza
+            {t.hero.cta1}
           </a>
           <a
             href="#galleria"
             className="px-8 py-3 font-serif text-sm tracking-widest2 uppercase text-ink-stone hover:text-ink-gold transition-colors"
           >
-            Scopri la Galleria
+            {t.hero.cta2}
           </a>
         </div>
       </div>
