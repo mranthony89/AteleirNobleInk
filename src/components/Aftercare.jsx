@@ -3,10 +3,10 @@ import SubtleDivider from './SubtleDivider.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const STEP_IMAGES = [
-  '/aftercare/step-1.jpg',
-  '/aftercare/step-2.jpg',
-  '/aftercare/step-3.jpg',
-  '/aftercare/step-4.jpg',
+  './aftercare/step-1.jpg',
+  './aftercare/step-2.jpg',
+  './aftercare/step-3.jpg',
+  './aftercare/step-4.jpg',
 ]
 
 export default function Aftercare() {

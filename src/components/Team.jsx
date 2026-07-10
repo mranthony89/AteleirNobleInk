@@ -1,6 +1,6 @@
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
-const photos = ['/team/tatuatore-1.jpg', '/team/tatuatore-2.jpg', '/team/tatuatore-3.jpg']
+const photos = ['./team/tatuatore-1.jpg', './team/tatuatore-2.jpg', './team/tatuatore-3.jpg']
 
 export default function Team() {
   const { t } = useLanguage()

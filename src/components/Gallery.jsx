@@ -1,12 +1,12 @@
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const photos = [
-  '/gallery/gallery-1.jpg',
-  '/gallery/gallery-2.jpg',
-  '/gallery/gallery-3.jpg',
-  '/gallery/gallery-4.jpg',
-  '/gallery/gallery-5.jpg',
-  '/gallery/gallery-6.jpg',
+  './gallery/gallery-1.jpg',
+  './gallery/gallery-2.jpg',
+  './gallery/gallery-3.jpg',
+  './gallery/gallery-4.jpg',
+  './gallery/gallery-5.jpg',
+  './gallery/gallery-6.jpg',
 ]
 
 export default function Gallery() {
