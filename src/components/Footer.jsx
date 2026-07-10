@@ -12,7 +12,7 @@ export default function Footer() {
 
         <div className="flex gap-6 font-serif text-sm text-ink-stone">
           <a href="#chi-siamo" className="hover:text-ink-gold transition-colors">{t.nav.about}</a>
-          <a href="#servizi" className="hover:text-ink-gold transition-colors">{t.nav.services}</a>
+          <a href="#servizi" className="hover:text-ink-gold transition-colors">{t.nav.team}</a>
           <a href="#galleria" className="hover:text-ink-gold transition-colors">{t.nav.gallery}</a>
           <a href="#contatti" className="hover:text-ink-gold transition-colors">{t.nav.contact}</a>
         </div>

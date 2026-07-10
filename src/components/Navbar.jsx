@@ -9,7 +9,7 @@ export default function Navbar() {
 
   const links = [
     { href: '#chi-siamo', label: t.nav.about },
-    { href: '#servizi', label: t.nav.services },
+    { href: '#servizi', label: t.nav.team },
     { href: '#galleria', label: t.nav.gallery },
     { href: '#artisti', label: t.nav.philosophy },
     { href: '#contatti', label: t.nav.contact },

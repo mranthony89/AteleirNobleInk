@@ -1,12 +1,12 @@
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
-const styles = [
-  'from-ink-stone/20 via-ink-beige to-ink-ivory',
-  'from-ink-black via-ink-charcoal to-ink-stone',
-  'from-ink-beige via-ink-ivory to-ink-gold/40',
-  'from-ink-charcoal via-ink-stone to-ink-beige',
-  'from-ink-ivory via-ink-beige to-ink-stone/30',
-  'from-ink-black via-ink-stone to-ink-gold/30',
+const photos = [
+  '/gallery/gallery-1.jpg',
+  '/gallery/gallery-2.jpg',
+  '/gallery/gallery-3.jpg',
+  '/gallery/gallery-4.jpg',
+  '/gallery/gallery-5.jpg',
+  '/gallery/gallery-6.jpg',
 ]
 
 export default function Gallery() {
@@ -27,10 +27,15 @@ export default function Gallery() {
           {t.gallery.pieces.map((label, i) => (
             <div
               key={label}
-              className={`aspect-square bg-gradient-to-br ${styles[i]} border border-ink-stone/20 flex items-end p-5 group relative overflow-hidden`}
+              className="aspect-square border border-ink-stone/20 flex items-end p-5 group relative overflow-hidden"
             >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-ink-black/30" />
-              <span className="relative font-serif text-sm tracking-widest2 uppercase text-ink-charcoal group-hover:text-ink-ivory transition-colors">
+              <img
+                src={photos[i]}
+                alt={label}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-black/70 via-ink-black/10 to-transparent group-hover:from-ink-black/85 transition-colors" />
+              <span className="relative font-serif text-sm tracking-widest2 uppercase text-ink-ivory">
                 {label}
               </span>
             </div>

@@ -2,6 +2,26 @@ import { useState } from 'react'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const STUDIO_EMAIL = 'info@ateliernobleink.com'
+const STUDIO_PHONE_DISPLAY = '+34 3333333'
+const STUDIO_PHONE_DIGITS = '343333333'
+
+const SOCIAL_LINKS = [
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/ateliernobleink',
+    path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z',
+  },
+  {
+    name: 'Instagram',
+    path: null,
+    href: 'https://www.instagram.com/ateliernobleink',
+  },
+  {
+    name: 'TikTok',
+    href: 'https://www.tiktok.com/@ateliernobleink',
+    path: 'M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5c.35 0 .69.05 1 .14V7a6 6 0 1 0 6 6V8.5a6.5 6.5 0 0 0 3.5 1V6.8A5 5 0 0 1 17 4h-3z',
+  },
+]
 
 export default function Contact() {
   const { t } = useLanguage()
@@ -110,6 +130,14 @@ export default function Contact() {
               {t.contact.addressLabel}
             </p>
             <p>{t.contact.address}</p>
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(t.contact.address)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="md:hidden inline-block mt-3 text-xs tracking-widest2 uppercase text-ink-gold underline underline-offset-4"
+            >
+              {t.contact.directions}
+            </a>
           </div>
           <div>
             <p className="tracking-widest2 uppercase text-ink-gold mb-2 text-xs">
@@ -122,7 +150,38 @@ export default function Contact() {
               {t.contact.contactLabel}
             </p>
             <p>{STUDIO_EMAIL}</p>
+            <a
+              href={`https://wa.me/${STUDIO_PHONE_DIGITS}`}
+              className="block md:pointer-events-none md:cursor-default hover:text-ink-gold md:hover:text-ink-ivory/70 transition-colors"
+            >
+              {STUDIO_PHONE_DISPLAY}
+            </a>
           </div>
+        </div>
+
+        <div className="flex items-center justify-center gap-5 mt-16">
+          {SOCIAL_LINKS.map((s) => (
+            <a
+              key={s.name}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.name}
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-ink-gold/40 text-ink-ivory/80 hover:border-ink-gold hover:text-ink-gold transition-colors"
+            >
+              {s.name === 'Instagram' ? (
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6">
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+                  <circle cx="12" cy="12" r="4.2" />
+                  <line x1="17.3" y1="6.7" x2="17.31" y2="6.7" strokeLinecap="round" strokeWidth="2.2" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
+                  <path d={s.path} />
+                </svg>
+              )}
+            </a>
+          ))}
         </div>
       </div>
     </section>

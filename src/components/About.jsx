@@ -5,7 +5,7 @@ export default function About() {
   const { t } = useLanguage()
 
   return (
-    <section id="chi-siamo" className="bg-ink-ivory py-24 md:py-32">
+    <section id="chi-siamo" className="bg-ink-ivory pt-10 pb-24 md:py-32">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="font-serif text-xs tracking-widest2 uppercase text-ink-gold">
           {t.about.eyebrow}
@@ -13,9 +13,6 @@ export default function About() {
         <h2 className="font-serif text-2xl md:text-4xl mt-4 mb-8">{t.about.title}</h2>
         <p className="font-serif text-base md:text-lg leading-relaxed text-ink-charcoal">
           {t.about.p1}
-        </p>
-        <p className="font-serif text-base md:text-lg leading-relaxed text-ink-stone mt-6">
-          {t.about.p2}
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16">

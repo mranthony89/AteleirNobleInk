@@ -3,7 +3,7 @@ import WelcomeOverlay from './components/WelcomeOverlay.jsx'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
-import Services from './components/Services.jsx'
+import Team from './components/Team.jsx'
 import Gallery from './components/Gallery.jsx'
 import Philosophy from './components/Philosophy.jsx'
 import Contact from './components/Contact.jsx'
@@ -18,7 +18,7 @@ export default function App() {
         <Navbar />
         <Hero />
         <About />
-        <Services />
+        <Team />
         <Gallery />
         <Philosophy />
         <Contact />

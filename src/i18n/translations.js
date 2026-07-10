@@ -5,12 +5,13 @@ export const languages = [
   { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
 ]
 
+const teamNames = ['Marco Bellini', 'Sara Conti', 'Luca Ferretti']
+
 export const translations = {
   it: {
-    nav: { about: 'Chi Siamo', services: 'Servizi', gallery: 'Galleria', philosophy: 'Filosofia', contact: 'Contatti', book: 'Prenota' },
+    nav: { about: 'Chi Siamo', team: 'Team', gallery: 'Galleria', philosophy: 'Filosofia', contact: 'Contatti', book: 'Prenota' },
     welcome: {
-      title: 'Benvenuti in Atelier Noble Ink',
-      subtitle: "Dove l'arte incontra la pelle e ogni tatuaggio diventa un'opera senza tempo.",
+      hello: 'Benvenuti',
       choose: 'Scegli la tua lingua',
       enter: 'Entra',
     },
@@ -24,23 +25,19 @@ export const translations = {
       eyebrow: 'Chi Siamo',
       title: 'Più di uno studio di tatuaggi',
       p1: "Atelier Noble Ink è un luogo dove l'arte si incontra con la pelle, la storia si incontra con l'identità e ogni tatuaggio si trasforma in un'opera senza tempo.",
-      p2: "Fondato sulla precisione, la discrezione e il rispetto per il mestiere, il nostro atelier accoglie chi cerca un tatuaggio pensato con cura — non semplicemente disegnato, ma vissuto.",
       values: [
-        { title: 'Sofisticato', text: "Parliamo con eleganza e rispetto per l'arte e per il cliente." },
-        { title: 'Autentico', text: 'Comunichiamo la nostra passione e la nostra esperienza.' },
-        { title: 'Personale', text: 'Ogni tatuaggio ha una storia, ogni cliente è unico.' },
+        { title: 'Consulenza', text: 'Ogni progetto nasce da un confronto attento, per trovare la soluzione più adatta a te.' },
+        { title: 'Eccellenza', text: 'Lavoriamo con precisione, igiene e professionalità in ogni fase del tatuaggio.' },
+        { title: 'Follow-Up', text: 'Il nostro lavoro continua anche dopo la seduta, accompagnandoti fino alla completa guarigione. Non ti lasciamo solo!' },
       ],
     },
-    services: {
-      eyebrow: 'Servizi',
-      title: "L'arte, su misura",
-      items: [
-        { title: 'Tatuaggi Custom', desc: 'Progetti unici disegnati insieme al cliente, pensati per raccontare una storia personale.' },
-        { title: 'Fine Line & Dettaglio', desc: 'Linee sottili e precise per composizioni eleganti e minimaliste.' },
-        { title: 'Blackwork', desc: 'Contrasti decisi e pieni netti, ispirati alla tradizione grafica e scultorea.' },
-        { title: 'Copertura & Restyling', desc: 'Trasformiamo tatuaggi esistenti in nuove opere coerenti e curate.' },
-        { title: 'Consulenza Privata', desc: 'Un incontro riservato per definire stile, posizionamento e cura del progetto.' },
-        { title: 'Aftercare', desc: "Accompagniamo ogni cliente nella cura del tatuaggio, passo dopo passo." },
+    team: {
+      eyebrow: 'Il Nostro Team',
+      title: 'Le mani dietro ogni opera',
+      members: [
+        { name: teamNames[0], bio: 'Specializzato in blackwork e ornamentale, unisce tecnica precisa a uno stile scultoreo.', styles: 'Blackwork · Ornamentale · Geometrico' },
+        { name: teamNames[1], bio: 'Maestra del fine line e dei soggetti botanici, cura ogni dettaglio con delicatezza.', styles: 'Fine Line · Botanico · Minimalista' },
+        { name: teamNames[2], bio: 'Esperto in ritratti realistici e coperture, trasforma ogni idea in un\'opera vissuta.', styles: 'Realistico · Copertura · Ritratto' },
       ],
     },
     gallery: {
@@ -48,7 +45,7 @@ export const translations = {
       title: 'Opere Selezionate',
       subtitle: 'Immagini autentiche, dettagli di materiali, atmosfera sofisticata — colori desaturati, tonalità calde e naturali.',
       footnote: 'Portfolio completo disponibile su richiesta in studio e sui nostri canali social.',
-      pieces: ['Fine Line', 'Blackwork', 'Ornamentale', 'Ritratto', 'Botanico', 'Geometrico'],
+      pieces: ['Fine Line', 'Blackwork', 'Ornamentale', 'Realistico', 'Botanico', 'Geometrico'],
     },
     philosophy: {
       eyebrow: 'La Nostra Filosofia',
@@ -67,9 +64,10 @@ export const translations = {
       submit: 'Invia Richiesta',
       sent: "Il tuo client email si sta aprendo per completare l'invio. A presto in atelier.",
       addressLabel: 'Indirizzo',
-      address: "Via dell'Arte 12, Milano",
+      address: 'Calle Los Emigrantes 4, San Isidro de Abona, Tenerife',
+      directions: 'Come raggiungerci',
       hoursLabel: 'Orari',
-      hours: 'Mar–Sab, 11:00–19:00',
+      hours: 'Tutti i giorni, 10:00–18:00',
       contactLabel: 'Contatti',
     },
     footer: {
@@ -78,10 +76,9 @@ export const translations = {
   },
 
   es: {
-    nav: { about: 'Nosotros', services: 'Servicios', gallery: 'Galería', philosophy: 'Filosofía', contact: 'Contacto', book: 'Reservar' },
+    nav: { about: 'Nosotros', team: 'Equipo', gallery: 'Galería', philosophy: 'Filosofía', contact: 'Contacto', book: 'Reservar' },
     welcome: {
-      title: 'Bienvenidos a Atelier Noble Ink',
-      subtitle: 'Donde el arte se encuentra con la piel y cada tatuaje se convierte en una obra sin tiempo.',
+      hello: 'Bienvenidos',
       choose: 'Elige tu idioma',
       enter: 'Entrar',
     },
@@ -95,23 +92,19 @@ export const translations = {
       eyebrow: 'Nosotros',
       title: 'Más que un estudio de tatuajes',
       p1: 'Atelier Noble Ink es un lugar donde el arte se encuentra con la piel, la historia se encuentra con la identidad y cada tatuaje se convierte en una obra sin tiempo.',
-      p2: 'Fundado en la precisión, la discreción y el respeto por el oficio, nuestro atelier recibe a quienes buscan un tatuaje pensado con cuidado — no simplemente dibujado, sino vivido.',
       values: [
-        { title: 'Sofisticado', text: 'Hablamos con elegancia y respeto por el arte y por el cliente.' },
-        { title: 'Auténtico', text: 'Comunicamos nuestra pasión y nuestra experiencia.' },
-        { title: 'Personal', text: 'Cada tatuaje tiene una historia, cada cliente es único.' },
+        { title: 'Consulta', text: 'Cada proyecto nace de una conversación atenta, para encontrar la solución más adecuada para ti.' },
+        { title: 'Excelencia', text: 'Trabajamos con precisión, higiene y profesionalidad en cada fase del tatuaje.' },
+        { title: 'Seguimiento', text: 'Nuestro trabajo continúa después de la sesión, acompañándote hasta la completa curación. ¡No te dejamos solo!' },
       ],
     },
-    services: {
-      eyebrow: 'Servicios',
-      title: 'El arte, a medida',
-      items: [
-        { title: 'Tatuajes a Medida', desc: 'Proyectos únicos diseñados junto al cliente, pensados para contar una historia personal.' },
-        { title: 'Fine Line & Detalle', desc: 'Líneas finas y precisas para composiciones elegantes y minimalistas.' },
-        { title: 'Blackwork', desc: 'Contrastes decididos y llenos netos, inspirados en la tradición gráfica y escultórica.' },
-        { title: 'Cobertura & Restyling', desc: 'Transformamos tatuajes existentes en nuevas obras coherentes y cuidadas.' },
-        { title: 'Consulta Privada', desc: 'Un encuentro reservado para definir estilo, ubicación y cuidado del proyecto.' },
-        { title: 'Aftercare', desc: 'Acompañamos a cada cliente en el cuidado del tatuaje, paso a paso.' },
+    team: {
+      eyebrow: 'Nuestro Equipo',
+      title: 'Las manos detrás de cada obra',
+      members: [
+        { name: teamNames[0], bio: 'Especializado en blackwork y ornamental, une técnica precisa a un estilo escultórico.', styles: 'Blackwork · Ornamental · Geométrico' },
+        { name: teamNames[1], bio: 'Maestra del fine line y de los motivos botánicos, cuida cada detalle con delicadeza.', styles: 'Fine Line · Botánico · Minimalista' },
+        { name: teamNames[2], bio: 'Experto en retratos realistas y coberturas, transforma cada idea en una obra vivida.', styles: 'Realista · Cobertura · Retrato' },
       ],
     },
     gallery: {
@@ -119,7 +112,7 @@ export const translations = {
       title: 'Obras Seleccionadas',
       subtitle: 'Imágenes auténticas, detalles de materiales, atmósfera sofisticada — colores desaturados, tonos cálidos y naturales.',
       footnote: 'Portfolio completo disponible bajo petición en el estudio y en nuestras redes sociales.',
-      pieces: ['Fine Line', 'Blackwork', 'Ornamental', 'Retrato', 'Botánico', 'Geométrico'],
+      pieces: ['Fine Line', 'Blackwork', 'Ornamental', 'Realista', 'Botánico', 'Geométrico'],
     },
     philosophy: {
       eyebrow: 'Nuestra Filosofía',
@@ -138,9 +131,10 @@ export const translations = {
       submit: 'Enviar Solicitud',
       sent: 'Tu cliente de correo se está abriendo para completar el envío. Te esperamos en el atelier.',
       addressLabel: 'Dirección',
-      address: 'Via dell\'Arte 12, Milán',
+      address: 'Calle Los Emigrantes 4, San Isidro de Abona, Tenerife',
+      directions: 'Cómo llegar',
       hoursLabel: 'Horario',
-      hours: 'Mar–Sáb, 11:00–19:00',
+      hours: 'Todos los días, 10:00–18:00',
       contactLabel: 'Contacto',
     },
     footer: {
@@ -149,10 +143,9 @@ export const translations = {
   },
 
   en: {
-    nav: { about: 'About', services: 'Services', gallery: 'Gallery', philosophy: 'Philosophy', contact: 'Contact', book: 'Book Now' },
+    nav: { about: 'About', team: 'Team', gallery: 'Gallery', philosophy: 'Philosophy', contact: 'Contact', book: 'Book Now' },
     welcome: {
-      title: 'Welcome to Atelier Noble Ink',
-      subtitle: 'Where art meets skin and every tattoo becomes a timeless piece.',
+      hello: 'Welcome',
       choose: 'Choose your language',
       enter: 'Enter',
     },
@@ -166,23 +159,19 @@ export const translations = {
       eyebrow: 'About Us',
       title: 'More than a tattoo studio',
       p1: 'Atelier Noble Ink is a place where art meets skin, history meets identity, and every tattoo becomes a timeless piece.',
-      p2: 'Built on precision, discretion, and respect for the craft, our atelier welcomes those seeking a tattoo made with care — not simply drawn, but lived.',
       values: [
-        { title: 'Sophisticated', text: 'We speak with elegance and respect for the art and the client.' },
-        { title: 'Authentic', text: 'We communicate our passion and our experience.' },
-        { title: 'Personal', text: 'Every tattoo has a story, every client is unique.' },
+        { title: 'Consultation', text: 'Every project starts with an attentive conversation, to find the solution that suits you best.' },
+        { title: 'Excellence', text: 'We work with precision, hygiene, and professionalism at every stage of the tattoo.' },
+        { title: 'Follow-Up', text: "Our work continues after the session, guiding you through complete healing. We won't leave you on your own!" },
       ],
     },
-    services: {
-      eyebrow: 'Services',
-      title: 'Art, tailored to you',
-      items: [
-        { title: 'Custom Tattoos', desc: 'Unique designs created together with the client, meant to tell a personal story.' },
-        { title: 'Fine Line & Detail', desc: 'Thin, precise lines for elegant, minimalist compositions.' },
-        { title: 'Blackwork', desc: 'Bold contrasts and clean fills, inspired by graphic and sculptural tradition.' },
-        { title: 'Cover-ups & Restyling', desc: 'We transform existing tattoos into new, coherent, refined pieces.' },
-        { title: 'Private Consultation', desc: 'A private meeting to define style, placement, and care for the project.' },
-        { title: 'Aftercare', desc: 'We guide every client through tattoo care, step by step.' },
+    team: {
+      eyebrow: 'Our Team',
+      title: 'The hands behind every piece',
+      members: [
+        { name: teamNames[0], bio: 'Specialized in blackwork and ornamental designs, blending precise technique with a sculptural style.', styles: 'Blackwork · Ornamental · Geometric' },
+        { name: teamNames[1], bio: 'A master of fine line and botanical subjects, tending to every detail with delicacy.', styles: 'Fine Line · Botanical · Minimalist' },
+        { name: teamNames[2], bio: 'Expert in realistic portraits and cover-ups, turning every idea into a lived-in piece.', styles: 'Realistic · Cover-up · Portrait' },
       ],
     },
     gallery: {
@@ -190,7 +179,7 @@ export const translations = {
       title: 'Selected Works',
       subtitle: 'Authentic imagery, material details, sophisticated atmosphere — desaturated colors, warm and natural tones.',
       footnote: 'Full portfolio available on request in studio and on our social channels.',
-      pieces: ['Fine Line', 'Blackwork', 'Ornamental', 'Portrait', 'Botanical', 'Geometric'],
+      pieces: ['Fine Line', 'Blackwork', 'Ornamental', 'Realistic', 'Botanical', 'Geometric'],
     },
     philosophy: {
       eyebrow: 'Our Philosophy',
@@ -209,9 +198,10 @@ export const translations = {
       submit: 'Send Request',
       sent: 'Your email client is opening to complete the request. See you soon at the atelier.',
       addressLabel: 'Address',
-      address: 'Via dell\'Arte 12, Milan',
+      address: 'Calle Los Emigrantes 4, San Isidro de Abona, Tenerife',
+      directions: 'Get Directions',
       hoursLabel: 'Hours',
-      hours: 'Tue–Sat, 11am–7pm',
+      hours: 'Every day, 10:00am–6:00pm',
       contactLabel: 'Contact',
     },
     footer: {
@@ -220,10 +210,9 @@ export const translations = {
   },
 
   de: {
-    nav: { about: 'Über Uns', services: 'Leistungen', gallery: 'Galerie', philosophy: 'Philosophie', contact: 'Kontakt', book: 'Termin buchen' },
+    nav: { about: 'Über Uns', team: 'Team', gallery: 'Galerie', philosophy: 'Philosophie', contact: 'Kontakt', book: 'Termin buchen' },
     welcome: {
-      title: 'Willkommen bei Atelier Noble Ink',
-      subtitle: 'Wo Kunst auf Haut trifft und jedes Tattoo zu einem zeitlosen Werk wird.',
+      hello: 'Willkommen',
       choose: 'Wähle deine Sprache',
       enter: 'Eintreten',
     },
@@ -237,23 +226,19 @@ export const translations = {
       eyebrow: 'Über Uns',
       title: 'Mehr als ein Tattoo-Studio',
       p1: 'Atelier Noble Ink ist ein Ort, an dem Kunst auf Haut trifft, Geschichte auf Identität trifft und jedes Tattoo zu einem zeitlosen Werk wird.',
-      p2: 'Gegründet auf Präzision, Diskretion und Respekt für das Handwerk, empfängt unser Atelier alle, die ein mit Sorgfalt gestaltetes Tattoo suchen — nicht einfach gezeichnet, sondern gelebt.',
       values: [
-        { title: 'Anspruchsvoll', text: 'Wir sprechen mit Eleganz und Respekt für die Kunst und den Kunden.' },
-        { title: 'Authentisch', text: 'Wir vermitteln unsere Leidenschaft und unsere Erfahrung.' },
-        { title: 'Persönlich', text: 'Jedes Tattoo hat eine Geschichte, jeder Kunde ist einzigartig.' },
+        { title: 'Beratung', text: 'Jedes Projekt beginnt mit einem aufmerksamen Gespräch, um die für dich passendste Lösung zu finden.' },
+        { title: 'Exzellenz', text: 'Wir arbeiten mit Präzision, Hygiene und Professionalität in jeder Phase des Tattoos.' },
+        { title: 'Nachbetreuung', text: 'Unsere Arbeit geht nach der Sitzung weiter und begleitet dich bis zur vollständigen Heilung. Wir lassen dich nicht allein!' },
       ],
     },
-    services: {
-      eyebrow: 'Leistungen',
-      title: 'Kunst nach Maß',
-      items: [
-        { title: 'Custom Tattoos', desc: 'Einzigartige Entwürfe, gemeinsam mit dem Kunden gestaltet, um eine persönliche Geschichte zu erzählen.' },
-        { title: 'Fine Line & Detail', desc: 'Feine, präzise Linien für elegante, minimalistische Kompositionen.' },
-        { title: 'Blackwork', desc: 'Klare Kontraste und satte Flächen, inspiriert von grafischer und bildhauerischer Tradition.' },
-        { title: 'Cover-up & Restyling', desc: 'Wir verwandeln bestehende Tattoos in neue, stimmige und gepflegte Werke.' },
-        { title: 'Private Beratung', desc: 'Ein vertrauliches Treffen, um Stil, Platzierung und Pflege des Projekts festzulegen.' },
-        { title: 'Nachsorge', desc: 'Wir begleiten jeden Kunden Schritt für Schritt bei der Tattoo-Pflege.' },
+    team: {
+      eyebrow: 'Unser Team',
+      title: 'Die Hände hinter jedem Werk',
+      members: [
+        { name: teamNames[0], bio: 'Spezialisiert auf Blackwork und ornamentale Designs, verbindet präzise Technik mit einem skulpturalen Stil.', styles: 'Blackwork · Ornamental · Geometrisch' },
+        { name: teamNames[1], bio: 'Meisterin des Fine Line und botanischer Motive, widmet sich jedem Detail mit Feingefühl.', styles: 'Fine Line · Botanisch · Minimalistisch' },
+        { name: teamNames[2], bio: 'Experte für realistische Porträts und Cover-ups, verwandelt jede Idee in ein gelebtes Werk.', styles: 'Realistisch · Cover-up · Porträt' },
       ],
     },
     gallery: {
@@ -261,7 +246,7 @@ export const translations = {
       title: 'Ausgewählte Werke',
       subtitle: 'Authentische Bilder, Materialdetails, edle Atmosphäre — entsättigte Farben, warme und natürliche Töne.',
       footnote: 'Vollständiges Portfolio auf Anfrage im Studio und auf unseren Social-Media-Kanälen.',
-      pieces: ['Fine Line', 'Blackwork', 'Ornamental', 'Porträt', 'Botanisch', 'Geometrisch'],
+      pieces: ['Fine Line', 'Blackwork', 'Ornamental', 'Realistisch', 'Botanisch', 'Geometrisch'],
     },
     philosophy: {
       eyebrow: 'Unsere Philosophie',
@@ -280,9 +265,10 @@ export const translations = {
       submit: 'Anfrage Senden',
       sent: 'Dein E-Mail-Programm öffnet sich, um die Anfrage abzuschließen. Bis bald im Atelier.',
       addressLabel: 'Adresse',
-      address: 'Via dell\'Arte 12, Mailand',
+      address: 'Calle Los Emigrantes 4, San Isidro de Abona, Tenerife',
+      directions: 'Route Planen',
       hoursLabel: 'Öffnungszeiten',
-      hours: 'Di–Sa, 11:00–19:00',
+      hours: 'Täglich, 10:00–18:00',
       contactLabel: 'Kontakt',
     },
     footer: {

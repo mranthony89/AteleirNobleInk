@@ -39,17 +39,21 @@ export default function WelcomeOverlay() {
       aria-modal="true"
       aria-label="Selezione lingua"
     >
-      <div className="relative z-10 flex flex-col items-center text-center max-w-md w-full">
-        <Logo className="w-20 h-20 md:w-24 md:h-24 mb-6" color="#000000" />
+      <div className="relative z-10 flex flex-col items-center text-center max-w-3xl w-full">
+        <Logo className="w-56 h-56 sm:w-64 sm:h-64 md:w-[22rem] md:h-[22rem] mb-8" color="#000000" />
 
-        <h2 className="font-serif text-xl md:text-2xl tracking-wide text-ink-charcoal">
-          {t.welcome.title}
+        <h2 className="font-serif text-3xl md:text-5xl tracking-widest2 uppercase text-ink-charcoal">
+          Atelier Noble Ink
         </h2>
-        <p className="font-serif text-sm md:text-base text-ink-stone mt-3 leading-relaxed max-w-sm">
-          {t.welcome.subtitle}
+        <p className="font-serif text-sm md:text-base tracking-[0.4em] uppercase text-ink-stone mt-3">
+          {t.hero.studio}
         </p>
 
         <SubtleDivider className="my-8" />
+
+        <p className="font-serif text-2xl md:text-3xl italic text-ink-charcoal mb-8">
+          {t.welcome.hello}
+        </p>
 
         <p className="font-serif text-xs tracking-widest2 uppercase text-ink-gold mb-5">
           {t.welcome.choose}
