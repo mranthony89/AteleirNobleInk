@@ -5,7 +5,7 @@ import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Team from './components/Team.jsx'
 import Gallery from './components/Gallery.jsx'
-import Philosophy from './components/Philosophy.jsx'
+import Aftercare from './components/Aftercare.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
@@ -20,7 +20,7 @@ export default function App() {
         <About />
         <Team />
         <Gallery />
-        <Philosophy />
+        <Aftercare />
         <Contact />
         <Footer />
         <ScrollToTop />

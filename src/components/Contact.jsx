@@ -43,9 +43,9 @@ export default function Contact() {
   }
 
   return (
-    <section id="contatti" className="bg-ink-black text-ink-ivory py-24 md:py-32">
+    <section id="contatti" className="bg-ink-black text-ink-ivory py-14 md:py-20">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-14">
+        <div className="text-center mb-10">
           <span className="font-serif text-xs tracking-widest2 uppercase text-ink-gold">
             {t.contact.eyebrow}
           </span>
@@ -124,7 +124,7 @@ export default function Contact() {
           )}
         </form>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 text-center font-serif text-sm text-ink-ivory/70">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 text-center font-serif text-sm text-ink-ivory/70">
           <div>
             <p className="tracking-widest2 uppercase text-ink-gold mb-2 text-xs">
               {t.contact.addressLabel}
@@ -159,7 +159,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-5 mt-16">
+        <div className="flex items-center justify-center gap-5 mt-10">
           {SOCIAL_LINKS.map((s) => (
             <a
               key={s.name}

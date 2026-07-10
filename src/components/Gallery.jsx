@@ -13,9 +13,9 @@ export default function Gallery() {
   const { t } = useLanguage()
 
   return (
-    <section id="galleria" className="marble-bg py-24 md:py-32">
+    <section id="galleria" className="marble-bg py-14 md:py-20">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <span className="font-serif text-xs tracking-widest2 uppercase text-ink-gold">
             {t.gallery.eyebrow}
           </span>

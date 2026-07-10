@@ -5,7 +5,7 @@ export default function About() {
   const { t } = useLanguage()
 
   return (
-    <section id="chi-siamo" className="bg-ink-ivory pt-10 pb-24 md:py-32">
+    <section id="chi-siamo" className="bg-ink-ivory pt-8 pb-14 md:py-16">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="font-serif text-xs tracking-widest2 uppercase text-ink-gold">
           {t.about.eyebrow}
@@ -15,7 +15,7 @@ export default function About() {
           {t.about.p1}
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-10">
           {t.about.values.map((v) => (
             <div key={v.title}>
               <SubtleDivider className="mb-6" />

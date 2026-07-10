@@ -11,7 +11,7 @@ export default function Navbar() {
     { href: '#chi-siamo', label: t.nav.about },
     { href: '#servizi', label: t.nav.team },
     { href: '#galleria', label: t.nav.gallery },
-    { href: '#artisti', label: t.nav.philosophy },
+    { href: '#cura-tatuaggio', label: t.nav.aftercare },
     { href: '#contatti', label: t.nav.contact },
   ]
 
