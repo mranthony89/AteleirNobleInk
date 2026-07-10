@@ -19,7 +19,7 @@ export const translations = {
       studio: 'Tattoo Studio',
       quote: '"Ogni tatuaggio racconta una storia senza tempo."',
       cta1: 'Prenota una Consulenza',
-      cta2: 'Scopri la Galleria',
+      cta2: 'Scopri la Cura del Tatuaggio',
     },
     about: {
       eyebrow: 'Chi Siamo',
@@ -114,7 +114,7 @@ export const translations = {
       studio: 'Tattoo Studio',
       quote: '"Cada tatuaje cuenta una historia sin tiempo."',
       cta1: 'Reserva una Consulta',
-      cta2: 'Descubre la Galería',
+      cta2: 'Descubre el Cuidado del Tatuaje',
     },
     about: {
       eyebrow: 'Nosotros',
@@ -209,7 +209,7 @@ export const translations = {
       studio: 'Tattoo Studio',
       quote: '"Every tattoo tells a timeless story."',
       cta1: 'Book a Consultation',
-      cta2: 'Explore the Gallery',
+      cta2: 'Discover Aftercare',
     },
     about: {
       eyebrow: 'About Us',
@@ -304,7 +304,7 @@ export const translations = {
       studio: 'Tattoo Studio',
       quote: '"Jedes Tattoo erzählt eine zeitlose Geschichte."',
       cta1: 'Beratung Buchen',
-      cta2: 'Galerie Entdecken',
+      cta2: 'Nachsorge Entdecken',
     },
     about: {
       eyebrow: 'Über Uns',

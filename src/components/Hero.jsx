@@ -35,7 +35,7 @@ export default function Hero() {
             {t.hero.cta1}
           </a>
           <a
-            href="#galleria"
+            href="#cura-tatuaggio"
             className="px-8 py-3 font-serif text-sm tracking-widest2 uppercase text-ink-stone hover:text-ink-gold transition-colors"
           >
             {t.hero.cta2}
