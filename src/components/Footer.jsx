@@ -25,18 +25,20 @@ export default function Footer() {
         <p className="font-serif text-xs text-ink-stone/70">
           © {new Date().getFullYear()} Atelier Noble Ink Tattoo Studio. {t.footer.rights}
         </p>
+      </Reveal>
 
+      <div className="max-w-6xl mx-auto px-6 lg:pr-24 pt-6 flex justify-center md:justify-end">
         <a
           href="https://www.proiettihouse.org"
           target="_blank"
           rel="noopener"
-          className="group inline-flex flex-col md:flex-row items-center text-center gap-0 md:gap-2 font-serif text-[11px] text-ink-stone/80 hover:text-ink-gold transition-colors"
+          className="group inline-flex flex-col md:flex-row items-center text-center md:text-left gap-0 md:gap-2 font-serif text-[11px] text-ink-stone/80 hover:text-ink-gold transition-colors"
         >
           <span className="font-semibold text-ink-stone group-hover:text-ink-gold transition-colors">ProiettiHouse.org</span>
           <span className="hidden md:inline text-ink-stone/40" aria-hidden="true">|</span>
           <span>{t.footer.credit}</span>
         </a>
-      </Reveal>
+      </div>
     </footer>
   )
 }

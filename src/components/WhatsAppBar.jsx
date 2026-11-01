@@ -46,7 +46,7 @@ export default function WhatsAppBar() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             whileHover={{ scale: 1.06 }}
-            className="group hidden md:flex fixed z-40 bottom-6 right-6 h-12 items-center gap-0 rounded-full bg-ink-black border border-ink-gold text-ink-gold shadow-gold-lg overflow-hidden"
+            className="group hidden md:flex fixed z-40 bottom-6 left-6 h-12 items-center gap-0 rounded-full bg-ink-black border border-ink-gold text-ink-gold shadow-gold-lg overflow-hidden"
           >
             <span className="flex w-12 h-12 items-center justify-center shrink-0">
               <WhatsAppIcon className="w-5 h-5" />

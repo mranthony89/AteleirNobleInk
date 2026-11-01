@@ -53,8 +53,8 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, y: 16, scale: 0.6, transition: { duration: 0.25, ease: 'easeIn' } }}
           whileHover={{ boxShadow: GLOW, transition: { duration: 0.35 } }}
           transition={{ type: 'spring', stiffness: 380, damping: 17 }}
-          // su mobile sta sopra la barra WhatsApp
-          className="group fixed bottom-24 md:bottom-6 left-4 md:left-6 z-40 w-12 h-12 rounded-full bg-ink-black text-ink-gold flex items-center justify-center hover:bg-ink-gold hover:text-ink-black transition-colors"
+          // stessa posizione di Lava De Mar: a destra, su mobile sopra la barra WhatsApp
+          className="group fixed right-4 lg:right-8 bottom-[calc(5.75rem+env(safe-area-inset-bottom))] lg:bottom-8 z-40 w-12 h-12 rounded-full bg-ink-black text-ink-gold flex items-center justify-center hover:bg-ink-gold hover:text-ink-black transition-colors"
         >
           <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
             <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" strokeOpacity=".22" strokeWidth="2" />
