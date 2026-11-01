@@ -94,7 +94,7 @@ export default function Navbar() {
           <div
             role="group"
             aria-label="Language"
-            className="flex items-center gap-0.5 rounded-xl border border-ink-charcoal/30 bg-white/70 backdrop-blur-sm p-0.5 shadow-sm font-serif"
+            className="flex items-center gap-0.5 rounded-lg border border-ink-charcoal/30 bg-white/70 backdrop-blur-sm p-0.5 shadow-sm font-serif"
           >
             {languages.map((l) => (
               <button
@@ -102,7 +102,7 @@ export default function Navbar() {
                 onClick={() => setLang(l.code)}
                 aria-label={l.label}
                 aria-pressed={lang === l.code}
-                className={`uppercase rounded-lg px-2.5 py-1.5 text-xs font-semibold tracking-widest2 transition-all ${
+                className={`uppercase rounded-md px-2 py-1 text-[11px] font-semibold tracking-wider transition-all ${
                   lang === l.code
                     ? 'bg-ink-gold text-ink-black shadow-gold'
                     : 'text-ink-charcoal hover:bg-ink-black/5'
