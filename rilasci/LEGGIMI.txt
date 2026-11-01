@@ -1,0 +1,19 @@
+SITO PRONTO DA CARICARE
+=======================
+
+File: atelier-noble-ink-sito.zip   (si aggiorna ad ogni modifica del sito)
+
+HOSTING
+1. Estrai lo zip sul tuo PC.
+2. Carica il CONTENUTO (non la cartella) nella cartella scelta sull'hosting
+   (es. public_html/ oppure sitiweb/AtelierNobleInk/). Funziona anche in sottocartella.
+3. Apri api/config.php sul server e controlla le email (to / from).
+   "from" deve essere un indirizzo del tuo dominio.
+
+XAMPP (locale)
+1. Estrai lo zip in C:\xampp\htdocs\atelier\
+2. Avvia Apache e apri http://localhost/atelier/
+   (il form non invia email finche' non configuri sendmail in XAMPP: e' normale)
+
+FILM
+Quando il video e' pronto, caricalo come video/atelier-film.mp4

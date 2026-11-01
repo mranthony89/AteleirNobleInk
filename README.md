@@ -24,6 +24,10 @@ Il comando genera la cartella `dist/`. Basta caricare **il contenuto** di `dist/
 - Logo: `src/components/Logo.jsx` (SVG) e `public/favicon.svg`
 - Email, telefono e WhatsApp: `src/config.js`
 
+## Sito pronto da caricare
+
+In `rilasci/atelier-noble-ink-sito.zip` c'è sempre l'ultima versione già compilata (istruzioni in `rilasci/LEGGIMI.txt`). Si rigenera con `npm run build` e zippando il contenuto di `dist/`.
+
 ## Contenuti di esempio
 
 Team (Valerio Bruni, Chiara Morandi, Matteo Vieri), stili, recensioni e foto sono **segnaposto** per la presentazione. Si sostituiscono in `src/i18n/extras.js` (testi nelle 4 lingue) e nelle cartelle `public/team`, `public/gallery`.
