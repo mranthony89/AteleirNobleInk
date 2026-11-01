@@ -34,7 +34,7 @@ export default function Team() {
                 <p className="font-serif text-[10px] tracking-widest2 uppercase text-ink-gold mb-2">
                   {t.team.roleLabel[i]}
                 </p>
-                <h3 className="font-serif text-xl tracking-wide mb-3">{member.name}</h3>
+                <h3 className="font-serif text-2xl tracking-wide mb-3">{member.name}</h3>
                 <p className="font-serif text-sm text-ink-ivory/75 leading-relaxed mb-5">{member.bio}</p>
                 <p className="font-serif text-[11px] tracking-widest2 uppercase text-ink-gold/90 mt-auto">{member.styles}</p>
                 <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-ink-gold/30 px-3 py-1 font-serif text-[11px] text-ink-ivory/70">

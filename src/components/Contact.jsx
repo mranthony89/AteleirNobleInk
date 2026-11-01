@@ -83,7 +83,7 @@ export default function Contact() {
                   <motion.circle cx="32" cy="32" r="28" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.9, ease: EASE }} />
                   <motion.path d="M20 33l8 8 16-17" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.6, delay: 0.7, ease: EASE }} />
                 </svg>
-                <h3 className="font-serif text-2xl mt-6">{t.contact.sentTitle}</h3>
+                <h3 className="font-serif text-3xl mt-6">{t.contact.sentTitle}</h3>
                 <p className="font-serif text-ink-ivory/75 mt-3 max-w-sm">{t.contact.sentText}</p>
                 <button
                   onClick={() => setStatus('idle')}

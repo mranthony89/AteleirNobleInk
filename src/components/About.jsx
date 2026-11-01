@@ -20,7 +20,7 @@ export default function About() {
         </Reveal>
 
         <div className="mt-16 md:mt-20 text-center">
-          <Reveal as="h3" className="font-serif text-xl md:text-2xl tracking-wide">{t.ritual.title}</Reveal>
+          <Reveal as="h3" className="font-serif text-2xl md:text-3xl tracking-wide">{t.ritual.title}</Reveal>
           <Reveal as="p" delay={0.1} className="font-serif text-ink-stone mt-3 max-w-xl mx-auto">{t.ritual.subtitle}</Reveal>
         </div>
 
@@ -43,7 +43,7 @@ export default function About() {
                   <span className="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex w-[4.5rem] h-[4.5rem] items-center justify-center rounded-full bg-ink-ivory border border-ink-gold/60 font-serif text-2xl text-ink-gold group-hover:bg-ink-gold group-hover:text-ink-black transition-colors duration-500">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h4 className="font-serif text-lg tracking-wide mb-3">{step.title}</h4>
+                  <h4 className="font-serif text-xl tracking-wide mb-3">{step.title}</h4>
                   <p className="font-serif text-sm text-ink-stone leading-relaxed">{step.text}</p>
                   <p className="mt-5 inline-block rounded-full border border-ink-gold/40 px-3 py-1 font-serif text-[10px] tracking-widest2 uppercase text-ink-gold">
                     {step.tag}

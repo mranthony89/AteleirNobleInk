@@ -15,7 +15,10 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"Times New Roman"', 'Times', 'serif'],
+        // testo: Lora (molto leggibile, anche a corpo piccolo)
+        serif: ['Lora', 'Georgia', '"Times New Roman"', 'serif'],
+        // titoli e marchio: Cormorant Garamond (elegante, di sapore classico)
+        display: ['"Cormorant Garamond"', 'Georgia', '"Times New Roman"', 'serif'],
       },
       letterSpacing: {
         widest2: '0.25em',

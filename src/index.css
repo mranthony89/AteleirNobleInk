@@ -8,6 +8,12 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Titoli in Cormorant Garamond, testo in Lora (vedi tailwind.config.js) */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+  font-weight: 600;
+}
+
 body {
   background-color: #F7F5F0;
   color: #262626;

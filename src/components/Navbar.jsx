@@ -63,7 +63,7 @@ export default function Navbar() {
         <a href="#top" onClick={() => setOpen(false)} className="flex items-center gap-3 text-left shrink-0">
           <Logo className="w-9 h-9 md:w-10 md:h-10 shrink-0" color="#000000" />
           <span className="flex flex-col leading-tight">
-            <span className="font-serif tracking-widest2 text-xs md:text-sm uppercase">Atelier Noble Ink</span>
+            <span className="font-display font-semibold tracking-widest2 text-sm md:text-base uppercase">Atelier Noble Ink</span>
             <span className="font-serif tracking-[0.3em] text-[9px] md:text-[10px] uppercase text-ink-stone">
               Tattoo Studio
             </span>
@@ -91,15 +91,21 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:flex items-center gap-4">
-          <div className="flex items-center gap-1 font-serif text-xs tracking-widest2 uppercase text-ink-stone">
+          <div
+            role="group"
+            aria-label="Language"
+            className="flex items-center gap-0.5 rounded-xl border border-ink-charcoal/30 bg-white/70 backdrop-blur-sm p-0.5 shadow-sm font-serif"
+          >
             {languages.map((l) => (
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
                 aria-label={l.label}
                 aria-pressed={lang === l.code}
-                className={`px-2 py-1 rounded-md transition-colors ${
-                  lang === l.code ? 'text-ink-gold font-semibold' : 'text-ink-charcoal/70 hover:text-ink-charcoal'
+                className={`uppercase rounded-lg px-2.5 py-1.5 text-xs font-semibold tracking-widest2 transition-all ${
+                  lang === l.code
+                    ? 'bg-ink-gold text-ink-black shadow-gold'
+                    : 'text-ink-charcoal hover:bg-ink-black/5'
                 }`}
               >
                 {l.code}
@@ -187,8 +193,8 @@ export default function Navbar() {
                     key={l.code}
                     onClick={() => setLang(l.code)}
                     aria-label={l.label}
-                    className={`w-11 h-11 rounded-xl border transition-colors ${
-                      lang === l.code ? 'border-ink-gold text-ink-gold bg-ink-gold/10' : 'border-ink-stone/30 text-ink-stone'
+                    className={`uppercase w-12 h-12 rounded-xl border text-sm font-semibold tracking-widest2 transition-colors ${
+                      lang === l.code ? 'border-ink-gold bg-ink-gold text-ink-black shadow-gold' : 'border-ink-charcoal/40 bg-white/60 text-ink-charcoal'
                     }`}
                   >
                     {l.code}

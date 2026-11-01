@@ -21,7 +21,7 @@ export default function Aftercare() {
         <SectionHeading eyebrow={t.aftercare.eyebrow} title={t.aftercare.heroTitle} subtitle={t.aftercare.heroSubtitle} />
 
         <Reveal className="text-center mb-8">
-          <h3 className="font-serif text-lg md:text-xl tracking-wide mb-2">{t.aftercare.introTitle}</h3>
+          <h3 className="font-serif text-xl md:text-2xl tracking-wide mb-2">{t.aftercare.introTitle}</h3>
           <p className="font-serif text-sm text-ink-stone">{t.aftercare.introText}</p>
         </Reveal>
 
@@ -33,7 +33,7 @@ export default function Aftercare() {
               transition={{ type: 'spring', stiffness: 260, damping: 22 }}
               className="group h-full rounded-2xl border border-ink-stone/20 bg-white/50 overflow-hidden shadow-soft hover:shadow-gold hover:border-ink-gold/50 transition-shadow duration-500"
             >
-              <div className="relative h-44 overflow-hidden">
+              <div className="relative h-52 md:h-60 overflow-hidden">
                 <img src={STEP_IMAGES[i]} alt={step.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-[900ms] group-hover:scale-110" />
                 <span className="absolute top-3 left-3 bg-ink-gold/90 text-ink-black text-xs font-serif tracking-wide px-3 py-1 rounded-full">
                   {step.badge}
@@ -41,7 +41,7 @@ export default function Aftercare() {
               </div>
               <div className="p-6">
                 <p className="font-serif text-xs tracking-widest2 uppercase text-ink-gold mb-2">{step.label}</p>
-                <h4 className="font-serif text-lg mb-2">{step.title}</h4>
+                <h4 className="font-serif text-xl mb-2">{step.title}</h4>
                 <p className="font-serif text-sm text-ink-stone leading-relaxed">{step.desc}</p>
               </div>
             </motion.div>
@@ -50,7 +50,7 @@ export default function Aftercare() {
         </div>
 
         <div className="border-t border-ink-stone/20 pt-8 mb-10">
-          <h3 className="font-serif text-lg md:text-xl tracking-wide text-center mb-6">
+          <h3 className="font-serif text-xl md:text-2xl tracking-wide text-center mb-6">
             {t.aftercare.warningsTitle}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -74,7 +74,7 @@ export default function Aftercare() {
         </div>
 
         <div className="border-t border-ink-stone/20 pt-8">
-          <h3 className="font-serif text-lg md:text-xl tracking-wide text-center mb-6">
+          <h3 className="font-serif text-xl md:text-2xl tracking-wide text-center mb-6">
             {t.aftercare.faqTitle}
           </h3>
           <div className="max-w-3xl mx-auto divide-y divide-ink-stone/20 border border-ink-stone/20 rounded-2xl overflow-hidden bg-white/40">

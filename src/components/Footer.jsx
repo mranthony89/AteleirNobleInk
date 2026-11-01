@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="marble-bg border-t border-ink-stone/20 py-10 pb-28 md:pb-10">
       <Reveal className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-5 text-center">
         <Logo className="w-12 h-12" color="#000000" />
-        <p className="font-serif text-sm tracking-widest2 uppercase">Atelier Noble Ink</p>
+        <p className="font-display font-semibold text-lg tracking-widest2 uppercase">Atelier Noble Ink</p>
         <SubtleDivider className="my-1" />
 
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 font-serif text-sm text-ink-stone">

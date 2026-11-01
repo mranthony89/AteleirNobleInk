@@ -9,7 +9,7 @@ export default function SectionHeading({ eyebrow, title, subtitle, tone = 'light
       <Reveal as="span" y={12} className="inline-block font-serif text-xs tracking-widest2 uppercase text-ink-gold">
         {eyebrow}
       </Reveal>
-      <Reveal as="h2" delay={0.1} className="font-serif text-2xl md:text-4xl mt-4">
+      <Reveal as="h2" delay={0.1} className="font-serif text-3xl md:text-5xl mt-4">
         {title}
       </Reveal>
       <SubtleDivider className="mt-6 mb-0" delay={0.2} />

@@ -4,6 +4,81 @@
 
 export const extras = {
   it: {
+    // Verificato su fonti dermatologiche e siti di studi di tatuaggio (vedi README)
+    aftercare: {
+      "eyebrow": "Cura Tatuaggio",
+      "heroTitle": "La Cura del Tuo Tatuaggio",
+      "heroSubtitle": "Segui queste semplici procedure per garantire una guarigione perfetta e mantenere i colori brillanti nel tempo.",
+      "introTitle": "Il Percorso di Guarigione",
+      "introText": "Il tuo tatuaggio merita le migliori attenzioni. Ecco cosa fare, giorno dopo giorno. Se il tuo tatuatore ti dà indicazioni diverse, seguile: vengono prima di questa guida.",
+      "steps": [
+        {
+          "badge": "Giorni 1–3",
+          "label": "Protezione",
+          "title": "Proteggi con la pellicola trasparente",
+          "desc": "Il tatuaggio è una ferita aperta: lo copriamo con una speciale pellicola trasparente per tatuaggi, che lo protegge e lo lascia respirare. Di solito resta 2–4 giorni, come ti indicherà il tatuatore. Un po' di liquido sotto la pellicola è normale; toglila prima se si stacca, perde o la pelle si arrossa e si irrita."
+        },
+        {
+          "badge": "Giorni 4–7",
+          "label": "Idratazione",
+          "title": "Rimuovi, lava e idrata",
+          "desc": "Togli la pellicola lentamente, vicino alla pelle e aiutandoti con acqua tiepida. Lava con delicatezza con sapone neutro senza profumo, asciuga tamponando e lascia respirare qualche minuto. Poi lava 2 volte al giorno e applica un velo sottile di crema neutra senza profumo: troppa crema non aiuta."
+        },
+        {
+          "badge": "Settimane 2–3",
+          "label": "Desquamazione",
+          "title": "Se la pelle si secca, lascia fare",
+          "desc": "Non succede a tutti, ma la pelle può seccarsi, desquamarsi o formare piccole crosticine. È normale, però non strappare né grattare: lascia che cadano da sole. Continua a idratare con un velo sottile e usa indumenti morbidi e traspiranti."
+        },
+        {
+          "badge": "Settimana 4+",
+          "label": "Maturazione",
+          "title": "Proteggi e mantieni",
+          "desc": "In superficie il tatuaggio guarisce in circa 2–4 settimane, ma gli strati profondi richiedono alcuni mesi. Una volta guarito, proteggilo dal sole con SPF 50+ ed evita le lampade abbronzanti. Continua a idratare la pelle."
+        }
+      ],
+      "warningsTitle": "Cosa Fare e Cosa Non Fare",
+      "donts": [
+        "Non immergere in acqua (piscina, mare, vasca) per 2–4 settimane: la doccia va bene",
+        "Non esporre al sole diretto né ai lettini abbronzanti finché non è guarito",
+        "Non grattare né staccare le crosticine o la pelle che si secca",
+        "Non usare alcol, acqua ossigenata o prodotti aggressivi",
+        "Non indossare abiti stretti o ruvidi sulla zona tatuata"
+      ],
+      "dos": [
+        "Lava sempre le mani prima di toccare il tatuaggio",
+        "Applica la crema solo con dita pulite e in strato sottile",
+        "Usa un detergente neutro e una crema senza profumo, oppure i prodotti consigliati dal tuo tatuatore",
+        "Se la pellicola si stacca o perde, toglila e contatta il tuo tatuatore"
+      ],
+      "faqTitle": "Domande Frequenti",
+      "faqs": [
+        {
+          "q": "Quanto tempo impiega a guarire completamente?",
+          "a": "In genere la superficie guarisce in 2–4 settimane, ma gli strati più profondi possono richiedere alcuni mesi. Ognuno guarisce con i propri tempi: segui sempre le indicazioni del tuo tatuatore."
+        },
+        {
+          "q": "La mia pelle non si squama: è normale?",
+          "a": "Sì. Desquamazione e crosticine possono comparire, ma non succede a tutti: dipende dalla pelle, dalla zona e dal tipo di tatuaggio. Se la pelle non si squama non significa che guarisca male: continua con la stessa cura."
+        },
+        {
+          "q": "Posso fare sport dopo il tatuaggio?",
+          "a": "Evita attività fisica intensa per almeno 4-5 giorni, poiché il sudore può irritare la pelle e causare infezioni. Attività leggera come camminare è ok dopo 2 giorni."
+        },
+        {
+          "q": "Il tatuaggio può infettarsi? Come riconosco i segnali?",
+          "a": "Sì, se non si seguono le giuste procedure. Segnali di allarme: gonfiore eccessivo, arrossamento che peggiora dopo 3 giorni, pelle molto calda, febbre, secrezione maleodorante, dolore intenso e pulsante, strisce rosse che si allargano. Se compare un'eruzione sotto la pellicola, toglila subito. Contatta il tuo tatuatore o il medico."
+        },
+        {
+          "q": "Posso fare la doccia?",
+          "a": "Con la pellicola trasparente puoi fare la doccia con acqua tiepida, evitando getti diretti e immersioni. Senza pellicola, lava con delicatezza senza strofinare e asciuga tamponando con un panno pulito."
+        },
+        {
+          "q": "Posso usare creme solari sul tatuaggio?",
+          "a": "Sì, ma solo dopo che il tatuaggio è completamente guarito (circa 4 settimane); prima proteggilo con abiti coprenti. Poi usa SPF 50+ per evitare che i colori sbiadiscano e riapplica ogni 2 ore se sei al sole."
+        }
+      ]
+    },
     footer: { credit: 'Dalle tue necessità, alle soluzioni su misura', toTop: 'Torna in cima alla pagina' },
     nav: { styles: 'Stili' },
     hero: { film: "Film d'Atelier", scroll: 'Scorri' },
@@ -76,6 +151,81 @@ export const extras = {
   },
 
   es: {
+    // Verificato su fonti dermatologiche e siti di studi di tatuaggio (vedi README)
+    aftercare: {
+      "eyebrow": "Cuidados",
+      "heroTitle": "El Cuidado de tu Tatuaje",
+      "heroSubtitle": "Sigue estas sencillas pautas para garantizar una curación perfecta y mantener los colores vivos con el tiempo.",
+      "introTitle": "El Proceso de Curación",
+      "introText": "Tu tatuaje merece las mejores atenciones. Esto es lo que debes hacer, día a día. Si tu tatuador te da indicaciones distintas, síguelas: van antes que esta guía.",
+      "steps": [
+        {
+          "badge": "Días 1–3",
+          "label": "Protección",
+          "title": "Protege con la película transparente",
+          "desc": "El tatuaje es una herida abierta: lo cubrimos con una película transparente especial para tatuajes, que lo protege y lo deja respirar. Suele quedarse 2–4 días, según te indique el tatuador. Algo de líquido bajo la película es normal; quítala antes si se despega, pierde o la piel se enrojece e irrita."
+        },
+        {
+          "badge": "Días 4–7",
+          "label": "Hidratación",
+          "title": "Retira, lava e hidrata",
+          "desc": "Retira la película despacio, pegada a la piel y ayudándote con agua tibia. Lava con suavidad con jabón neutro sin perfume, seca a toquecitos y deja respirar unos minutos. Después lava 2 veces al día y aplica una capa fina de crema neutra sin perfume: más crema no ayuda."
+        },
+        {
+          "badge": "Semanas 2–3",
+          "label": "Descamación",
+          "title": "Si la piel se seca, déjala hacer",
+          "desc": "No le pasa a todo el mundo, pero la piel puede secarse, descamarse o formar pequeñas costras. Es normal, pero no arranques ni rasques: deja que caigan solas. Sigue hidratando con una capa fina y usa ropa suave y transpirable."
+        },
+        {
+          "badge": "Semana 4+",
+          "label": "Maduración",
+          "title": "Protege y mantén",
+          "desc": "En superficie el tatuaje sana en unas 2–4 semanas, pero las capas profundas tardan algunos meses. Una vez curado, protégelo del sol con SPF 50+ y evita las cabinas de bronceado. Sigue hidratando la piel."
+        }
+      ],
+      "warningsTitle": "Qué Hacer y Qué No Hacer",
+      "donts": [
+        "No lo sumerjas en agua (piscina, mar, bañera) durante 2–4 semanas: la ducha está bien",
+        "No lo expongas al sol directo ni a cabinas de bronceado hasta que esté curado",
+        "No rasques ni despegues las costras o la piel que se seca",
+        "No uses alcohol, agua oxigenada ni productos agresivos",
+        "No uses ropa ajustada o áspera sobre la zona tatuada"
+      ],
+      "dos": [
+        "Lávate siempre las manos antes de tocar el tatuaje",
+        "Aplica la crema solo con los dedos limpios y en capa fina",
+        "Usa un limpiador neutro y una crema sin perfume, o los productos que te recomiende tu tatuador",
+        "Si la película se despega o pierde, quítala y contacta con tu tatuador"
+      ],
+      "faqTitle": "Preguntas Frecuentes",
+      "faqs": [
+        {
+          "q": "¿Cuánto tiempo tarda en sanar por completo?",
+          "a": "Por lo general la superficie sana en 2–4 semanas, pero las capas más profundas pueden tardar algunos meses. Cada persona sana a su ritmo: sigue siempre las indicaciones de tu tatuador."
+        },
+        {
+          "q": "Mi piel no se descama: ¿es normal?",
+          "a": "Sí. La descamación y las costras pueden aparecer, pero no le ocurre a todo el mundo: depende de la piel, de la zona y del tipo de tatuaje. Que la piel no se descame no significa que sane mal: sigue con el mismo cuidado."
+        },
+        {
+          "q": "¿Puedo hacer deporte después del tatuaje?",
+          "a": "Evita la actividad física intensa durante al menos 4-5 días, ya que el sudor puede irritar la piel y causar infecciones. Una actividad ligera como caminar está bien después de 2 días."
+        },
+        {
+          "q": "¿Puede infectarse el tatuaje? ¿Cómo reconozco las señales?",
+          "a": "Sí, si no se siguen las pautas adecuadas. Señales de alarma: hinchazón excesiva, enrojecimiento que empeora tras 3 días, piel muy caliente, fiebre, secreción con mal olor, dolor intenso y pulsátil, líneas rojas que se extienden. Si aparece una erupción bajo la película, quítala enseguida. Contacta con tu tatuador o con un médico."
+        },
+        {
+          "q": "¿Puedo ducharme?",
+          "a": "Con la película transparente puedes ducharte con agua tibia, evitando el chorro directo y la inmersión. Sin película, lava con suavidad sin frotar y seca a toquecitos con un paño limpio."
+        },
+        {
+          "q": "¿Puedo usar crema solar sobre el tatuaje?",
+          "a": "Sí, pero solo cuando el tatuaje esté completamente curado (unas 4 semanas); antes, protégelo con ropa que lo cubra. Después usa SPF 50+ para evitar que los colores se desvanezcan y reaplica cada 2 horas si estás al sol."
+        }
+      ]
+    },
     footer: { credit: 'De tus necesidades, a soluciones a medida', toTop: 'Volver arriba' },
     nav: { styles: 'Estilos' },
     hero: { film: 'Film del Atelier', scroll: 'Desliza' },
@@ -148,6 +298,81 @@ export const extras = {
   },
 
   en: {
+    // Verificato su fonti dermatologiche e siti di studi di tatuaggio (vedi README)
+    aftercare: {
+      "eyebrow": "Aftercare",
+      "heroTitle": "Caring for Your Tattoo",
+      "heroSubtitle": "Follow these simple steps to ensure a perfect healing process and keep the colors vibrant over time.",
+      "introTitle": "The Healing Journey",
+      "introText": "Your tattoo deserves the best care. Here is what to do, day by day. If your tattoo artist gives you different instructions, follow them: they come before this guide.",
+      "steps": [
+        {
+          "badge": "Days 1–3",
+          "label": "Protection",
+          "title": "Protect it with the clear film",
+          "desc": "A tattoo is an open wound: we cover it with a special transparent tattoo film that protects it while letting it breathe. It usually stays on for 2–4 days, as your artist will tell you. Some fluid under the film is normal; take it off early if it lifts, leaks, or the skin turns red and irritated."
+        },
+        {
+          "badge": "Days 4–7",
+          "label": "Hydration",
+          "title": "Remove, wash and moisturize",
+          "desc": "Peel the film off slowly, close to the skin, using lukewarm water to help. Wash gently with mild unscented soap, pat dry, and let it air for a few minutes. Then wash twice a day and apply a thin layer of unscented neutral cream: more cream doesn't help."
+        },
+        {
+          "badge": "Weeks 2–3",
+          "label": "Peeling",
+          "title": "If the skin dries out, let it be",
+          "desc": "It doesn't happen to everyone, but the skin may dry out, peel, or form small scabs. That's normal, but don't pick or scratch: let them fall off on their own. Keep moisturizing with a thin layer and wear soft, breathable clothing."
+        },
+        {
+          "badge": "Week 4+",
+          "label": "Maturation",
+          "title": "Protect and maintain",
+          "desc": "The surface heals in about 2–4 weeks, but the deeper layers take a few months. Once healed, protect it from the sun with SPF 50+ and avoid tanning beds. Keep moisturizing your skin."
+        }
+      ],
+      "warningsTitle": "What to Do and What Not to Do",
+      "donts": [
+        "Do not soak it in water (pool, sea, bathtub) for 2–4 weeks: showering is fine",
+        "Do not expose it to direct sun or tanning beds until it is healed",
+        "Do not scratch or pick at scabs or dry skin",
+        "Do not use alcohol, hydrogen peroxide, or harsh products",
+        "Do not wear tight or rough clothing over the tattooed area"
+      ],
+      "dos": [
+        "Always wash your hands before touching the tattoo",
+        "Apply cream only with clean fingers and in a thin layer",
+        "Use a mild cleanser and an unscented cream, or the products your artist recommends",
+        "If the film lifts or leaks, take it off and contact your artist"
+      ],
+      "faqTitle": "Frequently Asked Questions",
+      "faqs": [
+        {
+          "q": "How long does it take to heal completely?",
+          "a": "The surface usually heals in 2–4 weeks, but the deeper layers can take a few months. Everyone heals at their own pace: always follow your tattoo artist's instructions."
+        },
+        {
+          "q": "My skin isn't peeling: is that normal?",
+          "a": "Yes. Peeling and scabbing can happen, but not to everyone: it depends on your skin, the area, and the type of tattoo. No peeling doesn't mean poor healing: keep up the same care."
+        },
+        {
+          "q": "Can I exercise after getting a tattoo?",
+          "a": "Avoid intense physical activity for at least 4-5 days, as sweat can irritate the skin and cause infections. Light activity like walking is fine after 2 days."
+        },
+        {
+          "q": "Can a tattoo get infected? How do I spot the signs?",
+          "a": "Yes, if the right procedures aren't followed. Warning signs: excessive swelling, redness that worsens after 3 days, very hot skin, fever, foul-smelling discharge, intense throbbing pain, spreading red streaks. If a rash appears under the film, take it off right away. Contact your tattoo artist or a doctor."
+        },
+        {
+          "q": "Can I shower?",
+          "a": "With the clear film on you can shower with lukewarm water, avoiding direct jets and soaking. Without the film, wash gently without rubbing and pat dry with a clean cloth."
+        },
+        {
+          "q": "Can I use sunscreen on the tattoo?",
+          "a": "Yes, but only once the tattoo is fully healed (about 4 weeks); before that, protect it with covering clothing. Then use SPF 50+ to prevent the colors from fading, and reapply every 2 hours if you are in the sun."
+        }
+      ]
+    },
     footer: { credit: 'From your business needs, to custom software solutions', toTop: 'Back to top' },
     nav: { styles: 'Styles' },
     hero: { film: 'Atelier Film', scroll: 'Scroll' },
@@ -220,6 +445,81 @@ export const extras = {
   },
 
   de: {
+    // Verificato su fonti dermatologiche e siti di studi di tatuaggio (vedi README)
+    aftercare: {
+      "eyebrow": "Nachsorge",
+      "heroTitle": "Die Pflege deines Tattoos",
+      "heroSubtitle": "Befolge diese einfachen Schritte für eine perfekte Heilung und leuchtende Farben, die lange halten.",
+      "introTitle": "Der Heilungsprozess",
+      "introText": "Dein Tattoo verdient die beste Pflege. So gehst du Tag für Tag vor. Wenn dein Tätowierer dir andere Anweisungen gibt, befolge diese: Sie gehen dieser Anleitung vor.",
+      "steps": [
+        {
+          "badge": "Tag 1–3",
+          "label": "Schutz",
+          "title": "Mit der transparenten Folie schützen",
+          "desc": "Ein Tattoo ist eine offene Wunde: Wir decken es mit einer speziellen transparenten Tattoo-Folie ab, die es schützt und atmen lässt. Sie bleibt meist 2–4 Tage drauf, so wie dein Tätowierer es sagt. Etwas Flüssigkeit unter der Folie ist normal; entferne sie früher, wenn sie sich löst, ausläuft oder die Haut rot und gereizt wird."
+        },
+        {
+          "badge": "Tag 4–7",
+          "label": "Feuchtigkeit",
+          "title": "Entfernen, waschen und eincremen",
+          "desc": "Ziehe die Folie langsam und hautnah ab, lauwarmes Wasser hilft dabei. Wasche sanft mit milder, parfümfreier Seife, tupfe trocken und lass die Haut ein paar Minuten atmen. Danach 2 Mal täglich waschen und eine dünne Schicht parfümfreie, neutrale Creme auftragen: Mehr Creme hilft nicht."
+        },
+        {
+          "badge": "Woche 2–3",
+          "label": "Abschälen",
+          "title": "Wenn die Haut trocken wird, lass sie",
+          "desc": "Nicht bei jedem passiert es, aber die Haut kann trocken werden, sich schälen oder kleine Krusten bilden. Das ist normal, aber nicht abreißen oder kratzen: Lass sie von selbst abfallen. Weiter mit einer dünnen Schicht eincremen und weiche, atmungsaktive Kleidung tragen."
+        },
+        {
+          "badge": "Woche 4+",
+          "label": "Reifung",
+          "title": "Schützen und pflegen",
+          "desc": "Oberflächlich verheilt das Tattoo in etwa 2–4 Wochen, die tieferen Hautschichten brauchen einige Monate. Nach der Heilung mit LSF 50+ vor Sonne schützen und Solarien meiden. Die Haut weiter eincremen."
+        }
+      ],
+      "warningsTitle": "Was zu tun ist und was nicht",
+      "donts": [
+        "2–4 Wochen nicht in Wasser tauchen (Pool, Meer, Badewanne): Duschen ist in Ordnung",
+        "Bis zur Heilung keiner direkten Sonne oder dem Solarium aussetzen",
+        "Krusten oder trockene Haut nicht kratzen oder ablösen",
+        "Keinen Alkohol, kein Wasserstoffperoxid oder aggressive Produkte verwenden",
+        "Keine enge oder raue Kleidung über der tätowierten Stelle tragen"
+      ],
+      "dos": [
+        "Immer die Hände waschen, bevor du das Tattoo berührst",
+        "Creme nur mit sauberen Fingern und dünn auftragen",
+        "Ein mildes Reinigungsmittel und eine parfümfreie Creme verwenden oder die Produkte, die dein Tätowierer empfiehlt",
+        "Löst sich die Folie oder läuft sie aus, entferne sie und kontaktiere deinen Tätowierer"
+      ],
+      "faqTitle": "Häufig Gestellte Fragen",
+      "faqs": [
+        {
+          "q": "Wie lange dauert es, bis es vollständig verheilt ist?",
+          "a": "Die Oberfläche heilt in der Regel in 2–4 Wochen, die tieferen Schichten können einige Monate brauchen. Jeder heilt in seinem eigenen Tempo: Befolge immer die Anweisungen deines Tätowierers."
+        },
+        {
+          "q": "Meine Haut schält sich nicht: Ist das normal?",
+          "a": "Ja. Abschälen und Krusten können auftreten, aber nicht bei jedem: Es hängt von Haut, Körperstelle und Art des Tattoos ab. Wenn sich nichts schält, heilt es nicht schlecht: Pflege einfach weiter wie bisher."
+        },
+        {
+          "q": "Kann ich nach dem Tätowieren Sport treiben?",
+          "a": "Vermeide mindestens 4-5 Tage lang intensive körperliche Aktivität, da Schweiß die Haut reizen und Infektionen verursachen kann. Leichte Aktivität wie Gehen ist nach 2 Tagen in Ordnung."
+        },
+        {
+          "q": "Kann sich ein Tattoo infizieren? Wie erkenne ich die Anzeichen?",
+          "a": "Ja, wenn die richtigen Vorgehensweisen nicht befolgt werden. Warnzeichen: übermäßige Schwellung, Rötung, die sich nach 3 Tagen verschlimmert, sehr heiße Haut, Fieber, übelriechender Ausfluss, starke pochende Schmerzen, sich ausbreitende rote Streifen. Tritt ein Ausschlag unter der Folie auf, entferne sie sofort. Kontaktiere deinen Tätowierer oder einen Arzt."
+        },
+        {
+          "q": "Kann ich duschen?",
+          "a": "Mit der transparenten Folie kannst du mit lauwarmem Wasser duschen, vermeide aber direkten Wasserstrahl und Eintauchen. Ohne Folie vorsichtig waschen, nicht reiben, und mit einem sauberen Tuch trockentupfen."
+        },
+        {
+          "q": "Kann ich Sonnencreme auf dem Tattoo verwenden?",
+          "a": "Ja, aber erst wenn das Tattoo vollständig verheilt ist (etwa 4 Wochen); davor mit bedeckender Kleidung schützen. Danach LSF 50+ verwenden, damit die Farben nicht verblassen, und bei Sonne alle 2 Stunden erneut auftragen."
+        }
+      ]
+    },
     footer: { credit: 'Von Ihren Anforderungen zu maßgeschneiderten Lösungen', toTop: 'Zurück nach oben' },
     nav: { styles: 'Stile' },
     hero: { film: 'Atelier-Film', scroll: 'Scrollen' },

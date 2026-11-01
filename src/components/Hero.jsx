@@ -94,7 +94,7 @@ export default function Hero({ onOpenFilm }) {
           duration={2.2}
         />
 
-        <h1 className="font-serif text-3xl md:text-5xl tracking-widest2 uppercase" aria-label="Atelier Noble Ink">
+        <h1 className="font-serif text-4xl md:text-6xl tracking-widest2 uppercase" aria-label="Atelier Noble Ink">
           {TITLE_WORDS.map((word, wi) => (
             <span key={word} className="inline-block whitespace-nowrap mr-[0.55em] last:mr-0" aria-hidden="true">
               {word.split('').map((ch) => {

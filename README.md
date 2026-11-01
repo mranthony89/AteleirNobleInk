@@ -1,6 +1,6 @@
 # Atelier Noble Ink — Sito Web
 
-Landing page one-page per lo studio di tatuaggi Atelier Noble Ink, basata sulla brand guide fornita (logo, palette colori, tipografia Times New Roman, tono di voce). Stack: React + Tailwind CSS + Framer Motion (animazioni).
+Landing page one-page per lo studio di tatuaggi Atelier Noble Ink, basata sulla brand guide fornita (logo, palette colori, tipografia Times New Roman, tono di voce). Stack: React + Tailwind CSS + Framer Motion (animazioni). Font self-hosted: Cormorant Garamond (titoli) e Lora (testo), nessun Google Fonts esterno.
 
 ## Sviluppo
 
@@ -46,3 +46,11 @@ Carica `public/video/atelier-film.mp4` per attivare il video. Finché non esiste
 ## WhatsApp
 
 Numero e messaggi precompilati: `src/config.js` e `contact.waMessage` in `src/i18n/extras.js`.
+
+## Immagini di esempio
+
+Le foto di stili (`public/gallery/`) e cura del tatuaggio (`public/aftercare/`) sono generate con l'IA (Gemini) senza volti: sono segnaposto da sostituire con foto reali del lavoro dello studio.
+
+## Testi della cura del tatuaggio
+
+Verificati su fonti dermatologiche (Cleveland Clinic, Healthline), sul produttore delle pellicole trasparenti (Saniderm) e su siti di studi di tatuaggio. Punti chiave: la pellicola trasparente resta in genere 2–4 giorni, desquamazione e crosticine possono comparire ma non sempre, niente immersioni per 2–4 settimane, crema solare solo a tatuaggio guarito. Sono nel file `src/i18n/extras.js` (chiave `aftercare`).

@@ -105,7 +105,7 @@ export default function Styles() {
                 className="rounded-2xl glass-light p-7 md:p-9 shadow-soft"
               >
                 <p className="font-serif text-xs tracking-widest2 uppercase text-ink-gold">{item.label}</p>
-                <h3 className="font-serif text-2xl md:text-3xl mt-2">{item.title}</h3>
+                <h3 className="font-serif text-3xl md:text-4xl mt-2">{item.title}</h3>
                 <p className="font-serif text-ink-charcoal leading-relaxed mt-4">{item.desc}</p>
 
                 <dl className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-ink-stone/15">
