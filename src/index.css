@@ -4,11 +4,14 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: #F7F5F0;
   color: #262626;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -36,4 +39,64 @@ body {
   .marble-bg {
     background-attachment: scroll;
   }
+}
+
+/* Scorrimento orizzontale con aggancio (mobile) senza barra visibile */
+.snap-row {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+.snap-row > * {
+  scroll-snap-align: center;
+}
+
+/* Vetro smerigliato chiaro sul marmo */
+.glass-light {
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(90, 90, 90, 0.15);
+}
+
+/* Superficie scura sulle fasce nere */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.04);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(218, 175, 55, 0.18);
+}
+
+/* Campi del form su fondo scuro */
+.field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(90, 90, 90, 0.7);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #F7F5F0;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.field:focus {
+  border-color: #DAAF37;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(218, 175, 55, 0.15), 0 8px 24px -10px rgba(218, 175, 55, 0.35);
+}
+
+/* Cerchio d'inchiostro che respira dietro l'hero */
+@keyframes ink-breathe {
+  0%, 100% { transform: scale(1) translate3d(0, 0, 0); }
+  50% { transform: scale(1.06) translate3d(0, -8px, 0); }
+}
+.ink-breathe {
+  animation: ink-breathe 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ink-breathe { animation: none; }
 }

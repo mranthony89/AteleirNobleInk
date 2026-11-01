@@ -1,3 +1,5 @@
+import { extras } from './extras.js'
+
 export const languages = [
   { code: 'it', label: 'Italiano', flag: '🇮🇹' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
@@ -7,7 +9,7 @@ export const languages = [
 
 const teamNames = ['Marco Bellini', 'Sara Conti', 'Luca Ferretti']
 
-export const translations = {
+const baseTranslations = {
   it: {
     nav: { about: 'Chi Siamo', team: 'Team', gallery: 'Galleria', aftercare: 'Cura Tatuaggio', contact: 'Contatti', book: 'Prenota' },
     welcome: {
@@ -388,3 +390,18 @@ export const translations = {
     },
   },
 }
+
+// Unisce i testi aggiunti con il restyling (extras.js): le chiavi di extras hanno la precedenza
+export const translations = Object.fromEntries(
+  Object.entries(baseTranslations).map(([code, base]) => {
+    const extra = extras[code] || {}
+    const merged = { ...base }
+    for (const key of Object.keys(extra)) {
+      merged[key] =
+        base[key] && typeof base[key] === 'object' && !Array.isArray(base[key])
+          ? { ...base[key], ...extra[key] }
+          : extra[key]
+    }
+    return [code, merged]
+  }),
+)

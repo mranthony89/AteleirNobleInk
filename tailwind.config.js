@@ -11,6 +11,7 @@ export default {
           beige: '#EBE2D6',
           ivory: '#F7F5F0',
           gold: '#DAAF37',
+          bronze: '#B8860B',
         },
       },
       fontFamily: {
@@ -18,6 +19,13 @@ export default {
       },
       letterSpacing: {
         widest2: '0.25em',
+      },
+      boxShadow: {
+        // alone dorato (design system Stitch, rielaborato)
+        gold: '0 0 20px rgba(218, 175, 55, 0.25)',
+        'gold-lg': '0 0 32px rgba(218, 175, 55, 0.4)',
+        soft: '0 10px 40px -12px rgba(38, 38, 38, 0.18)',
+        'soft-dark': '0 14px 44px -14px rgba(0, 0, 0, 0.7)',
       },
     },
   },

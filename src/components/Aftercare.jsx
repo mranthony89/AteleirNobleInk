@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import SubtleDivider from './SubtleDivider.jsx'
+import { AnimatePresence, motion } from 'framer-motion'
+import SectionHeading from './SectionHeading.jsx'
+import Reveal from '../lib/Reveal.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const STEP_IMAGES = [
@@ -14,27 +16,25 @@ export default function Aftercare() {
   const [openFaq, setOpenFaq] = useState(0)
 
   return (
-    <section id="cura-tatuaggio" className="bg-ink-ivory py-14 md:py-20">
+    <section id="cura-tatuaggio" className="bg-ink-ivory py-16 md:py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-10">
-          <span className="font-serif text-xs tracking-widest2 uppercase text-ink-gold">
-            {t.aftercare.eyebrow}
-          </span>
-          <h2 className="font-serif text-2xl md:text-4xl mt-4">{t.aftercare.heroTitle}</h2>
-          <p className="font-serif text-ink-stone mt-4 max-w-xl mx-auto">{t.aftercare.heroSubtitle}</p>
-        </div>
+        <SectionHeading eyebrow={t.aftercare.eyebrow} title={t.aftercare.heroTitle} subtitle={t.aftercare.heroSubtitle} />
 
-        <div className="text-center mb-8">
-          <SubtleDivider className="mb-6" />
+        <Reveal className="text-center mb-8">
           <h3 className="font-serif text-lg md:text-xl tracking-wide mb-2">{t.aftercare.introTitle}</h3>
           <p className="font-serif text-sm text-ink-stone">{t.aftercare.introText}</p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
           {t.aftercare.steps.map((step, i) => (
-            <div key={step.title} className="border border-ink-stone/20 bg-white/40 overflow-hidden">
-              <div className="relative h-44">
-                <img src={STEP_IMAGES[i]} alt={step.title} className="w-full h-full object-cover" />
+            <Reveal key={step.title} delay={(i % 2) * 0.12} className="h-full">
+            <motion.div
+              whileHover={{ y: -5 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+              className="group h-full rounded-2xl border border-ink-stone/20 bg-white/50 overflow-hidden shadow-soft hover:shadow-gold hover:border-ink-gold/50 transition-shadow duration-500"
+            >
+              <div className="relative h-44 overflow-hidden">
+                <img src={STEP_IMAGES[i]} alt={step.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-[900ms] group-hover:scale-110" />
                 <span className="absolute top-3 left-3 bg-ink-gold/90 text-ink-black text-xs font-serif tracking-wide px-3 py-1 rounded-full">
                   {step.badge}
                 </span>
@@ -44,7 +44,8 @@ export default function Aftercare() {
                 <h4 className="font-serif text-lg mb-2">{step.title}</h4>
                 <p className="font-serif text-sm text-ink-stone leading-relaxed">{step.desc}</p>
               </div>
-            </div>
+            </motion.div>
+            </Reveal>
           ))}
         </div>
 
@@ -53,22 +54,22 @@ export default function Aftercare() {
             {t.aftercare.warningsTitle}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ul className="space-y-3">
+            <Reveal as="ul" className="space-y-3 rounded-2xl bg-white/40 border border-ink-stone/15 p-6">
               {t.aftercare.donts.map((item) => (
                 <li key={item} className="flex items-start gap-3 font-serif text-sm text-ink-charcoal">
                   <span className="text-ink-stone mt-0.5">✕</span>
                   <span>{item}</span>
                 </li>
               ))}
-            </ul>
-            <ul className="space-y-3">
+            </Reveal>
+            <Reveal as="ul" delay={0.12} className="space-y-3 rounded-2xl bg-ink-gold/[0.07] border border-ink-gold/30 p-6">
               {t.aftercare.dos.map((item) => (
                 <li key={item} className="flex items-start gap-3 font-serif text-sm text-ink-charcoal">
                   <span className="text-ink-gold mt-0.5">✓</span>
                   <span>{item}</span>
                 </li>
               ))}
-            </ul>
+            </Reveal>
           </div>
         </div>
 
@@ -76,11 +77,12 @@ export default function Aftercare() {
           <h3 className="font-serif text-lg md:text-xl tracking-wide text-center mb-6">
             {t.aftercare.faqTitle}
           </h3>
-          <div className="max-w-3xl mx-auto divide-y divide-ink-stone/20 border border-ink-stone/20">
+          <div className="max-w-3xl mx-auto divide-y divide-ink-stone/20 border border-ink-stone/20 rounded-2xl overflow-hidden bg-white/40">
             {t.aftercare.faqs.map((faq, i) => (
               <div key={faq.q}>
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
+                  aria-expanded={openFaq === i}
                   className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 font-serif text-sm md:text-base hover:text-ink-gold transition-colors"
                 >
                   <span>{faq.q}</span>
@@ -91,9 +93,19 @@ export default function Aftercare() {
                     ⌄
                   </span>
                 </button>
-                {openFaq === i && (
-                  <p className="px-5 pb-5 font-serif text-sm text-ink-stone leading-relaxed">{faq.a}</p>
-                )}
+                <AnimatePresence initial={false}>
+                  {openFaq === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-5 pb-5 font-serif text-sm text-ink-stone leading-relaxed">{faq.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>

@@ -1,0 +1,4 @@
+FILM D'ATELIER
+Per attivare il video nel sito carica qui un file chiamato  atelier-film.mp4
+(consigliato: H.264, 1920x1080, sotto i 20 MB). Finché il file non esiste,
+il sito mostra un segnaposto elegante al posto del video.
