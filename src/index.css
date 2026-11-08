@@ -38,14 +38,8 @@ body {
   background-repeat: repeat;
   background-position: center center;
   background-size: 500px;
-  background-attachment: fixed;
 }
 
-@media (max-width: 768px) {
-  .marble-bg {
-    background-attachment: scroll;
-  }
-}
 
 /* Scorrimento orizzontale con aggancio (mobile) senza barra visibile */
 .snap-row {
@@ -60,19 +54,15 @@ body {
   scroll-snap-align: center;
 }
 
-/* Vetro smerigliato chiaro sul marmo */
+/* Superficie chiara sul marmo (senza backdrop-filter: molto costoso durante lo scroll) */
 .glass-light {
-  background: rgba(255, 255, 255, 0.55);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(90, 90, 90, 0.15);
 }
 
 /* Superficie scura sulle fasce nere */
 .glass-dark {
-  background: rgba(255, 255, 255, 0.04);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(218, 175, 55, 0.18);
 }
 
@@ -100,9 +90,28 @@ body {
 }
 .ink-breathe {
   animation: ink-breathe 9s ease-in-out infinite;
+  will-change: transform;
 }
+
+/* Polvere d'oro: animazione solo CSS (gira sul compositor, non pesa sul JavaScript) */
+@keyframes gold-dust {
+  0% { opacity: 0; transform: translate3d(0, 0, 0); }
+  30% { opacity: 0.9; }
+  100% { opacity: 0; transform: translate3d(0, -60px, 0); }
+}
+.gold-dust {
+  opacity: 0;
+  animation: gold-dust var(--dust-d, 9s) ease-in-out var(--dust-o, 0s) infinite;
+  will-change: transform, opacity;
+}
+
+/* Aloni dorati/neri: gradienti radiali al posto di grandi sfocature (blur) */
+.halo-gold { background: radial-gradient(closest-side, rgba(218, 175, 55, 0.14), rgba(218, 175, 55, 0)); }
+.halo-gold-soft { background: radial-gradient(closest-side, rgba(218, 175, 55, 0.09), rgba(218, 175, 55, 0)); }
+.halo-ink { background: radial-gradient(closest-side, rgba(38, 38, 38, 0.1), rgba(38, 38, 38, 0)); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .ink-breathe { animation: none; }
+  .gold-dust { animation: none; }
 }

@@ -27,7 +27,6 @@ export default function Hero({ onOpenFilm }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const markY = useTransform(scrollYProgress, [0, 1], ['0%', '22%'])
-  const markScale = useTransform(scrollYProgress, [0, 1], [1, 1.18])
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '14%'])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
@@ -50,7 +49,7 @@ export default function Hero({ onOpenFilm }) {
       {/* Filigrana: il marchio ingigantito scorre piano con lo scroll */}
       <motion.div
         aria-hidden="true"
-        style={reduce ? undefined : { y: markY, scale: markScale }}
+        style={reduce ? undefined : { y: markY, willChange: 'transform' }}
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
       >
         <div className="ink-breathe opacity-[0.035]">
@@ -60,24 +59,25 @@ export default function Hero({ onOpenFilm }) {
 
       {/* Macchie d'inchiostro sfocate */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="ink-breathe absolute -top-24 -left-24 w-[46vmax] h-[46vmax] rounded-full bg-ink-charcoal/[0.06] blur-3xl" />
+        <div className="ink-breathe halo-ink absolute -top-[20vmax] -left-[20vmax] w-[60vmax] h-[60vmax] rounded-full" />
         <div
-          className="ink-breathe absolute -bottom-32 -right-24 w-[40vmax] h-[40vmax] rounded-full bg-ink-gold/[0.12] blur-3xl"
+          className="ink-breathe halo-gold absolute -bottom-[18vmax] -right-[18vmax] w-[55vmax] h-[55vmax] rounded-full"
           style={{ animationDelay: '-4s' }}
         />
       </div>
 
-      {/* Polvere d'oro */}
-      {!reduce && (
+      {/* Polvere d'oro (solo CSS) */}
+      {!reduce && ready && (
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
           {DUST.map((p, i) => (
-            <motion.span
+            <span
               key={i}
-              className={`absolute rounded-full bg-ink-gold ${i > 7 ? 'hidden md:block' : ''}`}
-              style={{ left: p.l, top: p.t, width: p.s, height: p.s, boxShadow: '0 0 10px 2px rgba(218,175,55,0.5)' }}
-              initial={{ opacity: 0 }}
-              animate={ready ? { opacity: [0, 0.9, 0], y: [0, -34, -60] } : { opacity: 0 }}
-              transition={{ duration: p.d, delay: 1.5 + p.o, repeat: Infinity, ease: 'easeInOut' }}
+              className={`gold-dust absolute rounded-full bg-ink-gold ${i > 7 ? 'hidden md:block' : ''}`}
+              style={{
+                left: p.l, top: p.t, width: p.s, height: p.s,
+                boxShadow: '0 0 8px 1px rgba(218,175,55,0.5)',
+                '--dust-d': `${p.d}s`, '--dust-o': `${1.5 + p.o}s`,
+              }}
             />
           ))}
         </div>
@@ -133,7 +133,7 @@ export default function Hero({ onOpenFilm }) {
             href="#contatti"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className="rounded-xl border border-ink-black px-8 py-3 font-serif text-sm tracking-widest2 uppercase bg-white/30 backdrop-blur-sm hover:bg-ink-black hover:text-ink-ivory hover:shadow-gold transition-all duration-300"
+            className="rounded-xl border border-ink-black px-8 py-3 font-serif text-sm tracking-widest2 uppercase bg-white/40 hover:bg-ink-black hover:text-ink-ivory hover:shadow-gold transition-all duration-300"
           >
             {t.hero.cta1}
           </motion.a>

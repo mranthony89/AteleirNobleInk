@@ -10,7 +10,7 @@ export default function Reviews() {
 
   return (
     <section id="testimonianze" className="relative bg-ink-black text-ink-ivory py-16 md:py-24 overflow-clip">
-      <div aria-hidden="true" className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[60rem] h-[26rem] rounded-full bg-ink-gold/[0.06] blur-3xl pointer-events-none" />
+      <div aria-hidden="true" className="halo-gold-soft absolute -bottom-48 left-1/2 -translate-x-1/2 w-[60rem] h-[30rem] pointer-events-none" />
       <div className="relative max-w-6xl mx-auto px-6">
         <SectionHeading eyebrow={t.reviews.eyebrow} title={t.reviews.title} subtitle={t.reviews.subtitle} tone="dark" />
 

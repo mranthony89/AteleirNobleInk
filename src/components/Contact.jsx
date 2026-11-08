@@ -53,7 +53,7 @@ export default function Contact() {
 
   return (
     <section id="contatti" className="relative bg-ink-black text-ink-ivory pt-16 pb-32 md:py-24 overflow-clip">
-      <div aria-hidden="true" className="absolute -top-40 left-1/2 -translate-x-1/2 w-[60rem] h-[28rem] rounded-full bg-ink-gold/[0.07] blur-3xl pointer-events-none" />
+      <div aria-hidden="true" className="halo-gold-soft absolute -top-48 left-1/2 -translate-x-1/2 w-[60rem] h-[32rem] pointer-events-none" />
       <div className="relative max-w-3xl mx-auto px-6">
         <SectionHeading eyebrow={t.contact.eyebrow} title={t.contact.title} subtitle={t.contact.subtitle} tone="dark" />
 

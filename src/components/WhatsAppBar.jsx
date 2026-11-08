@@ -28,7 +28,7 @@ export default function WhatsAppBar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden fixed z-40 inset-x-4 bottom-4 flex items-center justify-center gap-3 rounded-2xl bg-ink-black/95 backdrop-blur-md border border-ink-gold text-ink-gold px-6 py-3.5 font-serif text-sm tracking-widest2 uppercase shadow-gold-lg"
+            className="md:hidden fixed z-40 inset-x-4 bottom-4 flex items-center justify-center gap-3 rounded-2xl bg-ink-black/97 border border-ink-gold text-ink-gold px-6 py-3.5 font-serif text-sm tracking-widest2 uppercase shadow-gold-lg"
             style={{ marginBottom: 'env(safe-area-inset-bottom)' }}
           >
             <WhatsAppIcon className="w-5 h-5" />

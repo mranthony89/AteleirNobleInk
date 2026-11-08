@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, animate, motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
+import { AnimatePresence, animate, motion, useReducedMotion, useScroll } from 'framer-motion'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 // Pulsante "torna su" (portato dal sito ProiettiHouse/LavaDeMar, colori adattati all'oro):
@@ -17,7 +17,6 @@ export default function ScrollToTop() {
   const [visible, setVisible] = useState(false)
   const arrowRef = useRef(null)
   const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: 0.2 })
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > SHOW_AT)
@@ -66,7 +65,7 @@ export default function ScrollToTop() {
               stroke="#f8ca50"
               strokeWidth="2.5"
               strokeLinecap="round"
-              style={{ pathLength: progress }}
+              style={{ pathLength: scrollYProgress }}
               className="group-hover:[stroke:#000]"
             />
           </svg>

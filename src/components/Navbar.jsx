@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion'
+import { AnimatePresence, motion, useScroll } from 'framer-motion'
 import Logo from './Logo.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 import { EASE } from '../lib/Reveal.jsx'
@@ -12,7 +12,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
   const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 })
 
   const links = [
     { href: 'chi-siamo', label: t.nav.about },
@@ -54,7 +53,7 @@ export default function Navbar() {
     }
   }, [open])
 
-  const bg = scrolled || open ? 'bg-ink-ivory/90 backdrop-blur-md shadow-[0_1px_0_0_rgba(90,90,90,0.15)]' : 'bg-transparent'
+  const bg = scrolled || open ? 'bg-ink-ivory/95 shadow-[0_1px_0_0_rgba(90,90,90,0.15)]' : 'bg-transparent'
 
   return (
     <>
@@ -94,7 +93,7 @@ export default function Navbar() {
           <div
             role="group"
             aria-label="Language"
-            className="flex items-center gap-0.5 rounded-lg border border-ink-charcoal/30 bg-white/70 backdrop-blur-sm p-0.5 shadow-sm font-serif"
+            className="flex items-center gap-0.5 rounded-lg border border-ink-charcoal/30 bg-white/80 p-0.5 shadow-sm font-serif"
           >
             {languages.map((l) => (
               <button
@@ -141,7 +140,7 @@ export default function Navbar() {
       {/* Barra di avanzamento dorata */}
       <motion.div
         aria-hidden="true"
-        style={{ scaleX: progress }}
+        style={{ scaleX: scrollYProgress }}
         className="absolute bottom-0 left-0 right-0 h-px bg-ink-gold origin-left"
       />
 
