@@ -26,7 +26,7 @@ Il comando genera la cartella `dist/`. Basta caricare **il contenuto** di `dist/
 
 ## Sito pronto da caricare
 
-In `rilasci/atelier-noble-ink-sito.zip` c'è sempre l'ultima versione già compilata (istruzioni in `rilasci/LEGGIMI.txt`). Si rigenera con `npm run build` e zippando il contenuto di `dist/`.
+In `rilasci/atelier-noble-ink-sito.zip` c'è sempre l'ultima versione già compilata (istruzioni in `rilasci/LEGGIMI.txt`). Dopo aver estratto lo zip si può aprire anche con doppio clic su `index.html`. Si rigenera con `npm run build` e zippando il contenuto di `dist/`.
 
 ## Contenuti di esempio
 
