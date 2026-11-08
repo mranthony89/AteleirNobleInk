@@ -4,7 +4,8 @@ import SectionHeading from './SectionHeading.jsx'
 import Reveal, { EASE } from '../lib/Reveal.jsx'
 import { WhatsAppIcon } from './Icons.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
-import { STUDIO_EMAIL, STUDIO_PHONE_MASKED, openWhatsApp } from '../config.js'
+import PhoneImage from './PhoneImage.jsx'
+import { STUDIO_EMAIL, getPhoneDisplay, openWhatsApp } from '../config.js'
 
 const SOCIAL_LINKS = [
   {
@@ -159,7 +160,7 @@ export default function Contact() {
                     className="inline-flex items-center gap-2 mt-1 hover:text-ink-gold transition-colors"
                   >
                     <WhatsAppIcon className="w-4 h-4" />
-                    <span>{STUDIO_PHONE_MASKED}</span>
+                    <PhoneImage text={getPhoneDisplay()} label={t.contact.whatsappCard} />
                   </button>
                 </>
               ),

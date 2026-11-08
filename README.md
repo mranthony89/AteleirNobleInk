@@ -35,7 +35,7 @@ Team (Valerio Bruni, Chiara Morandi, Matteo Vieri), stili, recensioni e foto son
 ## Form contatti (WhatsApp)
 
 Il form non usa server né PHP: compone il messaggio (nome, email facoltativa, descrizione) e apre WhatsApp già compilato; il visitatore preme "Invia". Funziona su qualsiasi hosting statico.
-- Il numero WhatsApp **non compare in chiaro** nel codice né nella pagina (in `src/config.js` è codificato in pezzi e ricostruito solo al click, per ridurre lo spam dei bot). Nella pagina si vede mascherato (`+34 ••• ••• •••`).
+- Il numero WhatsApp **non esiste come testo** nel codice né nella pagina, per ridurre lo spam dei bot: in `src/config.js` è codificato in pezzi e a video viene **disegnato come immagine vettoriale** (`src/components/PhoneImage.jsx`, cifre in `src/lib/phoneGlyphs.js`, ricavate dal font Lora). Si legge normalmente; cliccandolo si apre WhatsApp.
 - Per cambiare numero: in `src/config.js` sostituisci `PHONE_PARTS` (istruzioni nel commento del file).
 - L'email dello studio resta visibile come contatto (`STUDIO_EMAIL`).
 

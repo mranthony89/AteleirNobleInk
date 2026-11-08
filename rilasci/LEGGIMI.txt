@@ -17,7 +17,7 @@ Il sito e' tutto statico: non serve PHP, database o altro sul server.
 
 FORM DI CONTATTO
    Il form apre WhatsApp con il messaggio gia' scritto; il visitatore preme "Invia".
-   Il numero non e' scritto in chiaro nella pagina (protezione anti-spam).
+   Il numero si vede nella pagina ma e' disegnato come immagine, non come testo (protezione anti-spam).
 
 SE L'FTP DA' ERRORE O SI FERMA A META'
    - Controlla lo spazio libero sull'hosting.
@@ -32,4 +32,4 @@ SE VEDI LA PAGINA BIANCA
 FILM
    Quando il video e' pronto, caricalo come video/atelier-film.mp4
 
-ULTIMO AGGIORNAMENTO: 2026-11-08 (form su WhatsApp, numero protetto, senza PHP)
+ULTIMO AGGIORNAMENTO: 2026-11-08 (form su WhatsApp, numero visibile come immagine anti-bot, senza PHP)
