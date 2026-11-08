@@ -5,10 +5,10 @@ import Reveal from '../lib/Reveal.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const STEP_IMAGES = [
-  './aftercare/step-1.jpg',
-  './aftercare/step-2.jpg',
-  './aftercare/step-3.jpg',
-  './aftercare/step-4.jpg',
+  './aftercare/step-1.webp',
+  './aftercare/step-2.webp',
+  './aftercare/step-3.webp',
+  './aftercare/step-4.webp',
 ]
 
 export default function Aftercare() {

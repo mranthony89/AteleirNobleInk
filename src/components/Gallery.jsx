@@ -6,12 +6,12 @@ import { ChevronIcon, CloseIcon } from './Icons.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const photos = [
-  './gallery/gallery-1.jpg',
-  './gallery/gallery-2.jpg',
-  './gallery/gallery-3.jpg',
-  './gallery/gallery-4.jpg',
-  './gallery/gallery-5.jpg',
-  './gallery/gallery-6.jpg',
+  './gallery/gallery-1.webp',
+  './gallery/gallery-2.webp',
+  './gallery/gallery-3.webp',
+  './gallery/gallery-4.webp',
+  './gallery/gallery-5.webp',
+  './gallery/gallery-6.webp',
 ]
 
 // Mosaico: la prima e l'ultima cella sono più grandi (variazione di ritmo)

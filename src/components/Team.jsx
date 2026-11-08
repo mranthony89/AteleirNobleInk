@@ -3,7 +3,7 @@ import SectionHeading from './SectionHeading.jsx'
 import Reveal from '../lib/Reveal.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
-const photos = ['./team/tatuatore-1.jpg', './team/tatuatore-2.jpg', './team/tatuatore-3.jpg']
+const photos = ['./team/tatuatore-1.webp', './team/tatuatore-2.webp', './team/tatuatore-3.webp']
 
 export default function Team() {
   const { t } = useLanguage()

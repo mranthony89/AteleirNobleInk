@@ -49,7 +49,7 @@ Messaggi precompilati: `contact.waMessage` in `src/i18n/extras.js`.
 
 ## Immagini di esempio
 
-Le foto di stili (`public/gallery/`) e cura del tatuaggio (`public/aftercare/`) sono generate con l'IA (Gemini) senza volti: sono segnaposto da sostituire con foto reali del lavoro dello studio.
+Le foto di stili (`public/gallery/`) e cura del tatuaggio (`public/aftercare/`) sono generate con l'IA (Gemini) senza volti: sono segnaposto da sostituire con foto reali del lavoro dello studio. Tutte le immagini sono in formato WebP (più leggero); se ne sostituisci una, mantieni lo stesso nome e formato `.webp` (conversione: https://squoosh.app).
 
 ## Testi della cura del tatuaggio
 

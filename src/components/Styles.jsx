@@ -7,14 +7,14 @@ import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 // Foto di esempio (le stesse della galleria): stile -> immagine
 const STYLE_IMAGES = [
-  './gallery/gallery-1.jpg', // fine line
-  './gallery/gallery-2.jpg', // blackwork
-  './gallery/gallery-3.jpg', // ornamentale
-  './gallery/gallery-4.jpg', // realistico
-  './gallery/gallery-5.jpg', // botanico
-  './gallery/gallery-6.jpg', // geometrico
+  './gallery/gallery-1.webp', // fine line
+  './gallery/gallery-2.webp', // blackwork
+  './gallery/gallery-3.webp', // ornamentale
+  './gallery/gallery-4.webp', // realistico
+  './gallery/gallery-5.webp', // botanico
+  './gallery/gallery-6.webp', // geometrico
 ]
-const AVATARS = ['./team/tatuatore-1.jpg', './team/tatuatore-2.jpg', './team/tatuatore-3.jpg']
+const AVATARS = ['./team/tatuatore-1.webp', './team/tatuatore-2.webp', './team/tatuatore-3.webp']
 
 export default function Styles() {
   const { t } = useLanguage()
