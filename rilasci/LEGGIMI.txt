@@ -17,3 +17,5 @@ XAMPP (locale)
 
 FILM
 Quando il video e' pronto, caricalo come video/atelier-film.mp4
+
+ULTIMO AGGIORNAMENTO: 2026-11-08 (ripristino: zip rigenerato da build pulita)
