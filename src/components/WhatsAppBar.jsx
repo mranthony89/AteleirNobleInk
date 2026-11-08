@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { WhatsAppIcon } from './Icons.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
-import { whatsappUrl } from '../config.js'
+import { openWhatsApp } from '../config.js'
 
 // Mobile: barra fissa in basso. Desktop: pulsante circolare con etichetta al passaggio.
 export default function WhatsAppBar() {
@@ -20,11 +20,10 @@ export default function WhatsAppBar() {
     <AnimatePresence>
       {visible && (
         <>
-          <motion.a
+          <motion.button
+            type="button"
             key="wa-mobile"
-            href={whatsappUrl(t.contact.waMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => openWhatsApp(t.contact.waMessage)}
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
@@ -34,13 +33,12 @@ export default function WhatsAppBar() {
           >
             <WhatsAppIcon className="w-5 h-5" />
             {t.contact.whatsappBar}
-          </motion.a>
+          </motion.button>
 
-          <motion.a
+          <motion.button
+            type="button"
             key="wa-desktop"
-            href={whatsappUrl(t.contact.waMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => openWhatsApp(t.contact.waMessage)}
             aria-label={t.contact.whatsappBar}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -54,7 +52,7 @@ export default function WhatsAppBar() {
             <span className="max-w-0 group-hover:max-w-[16rem] overflow-hidden whitespace-nowrap font-serif text-xs tracking-widest2 uppercase transition-all duration-500 group-hover:pr-5">
               {t.contact.whatsappBar}
             </span>
-          </motion.a>
+          </motion.button>
         </>
       )}
     </AnimatePresence>

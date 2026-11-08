@@ -2,45 +2,34 @@ SITO PRONTO - COSA FARE CON LO ZIP
 ==================================
 
 File: atelier-noble-ink-sito.zip   (si aggiorna ad ogni modifica del sito)
+Il sito e' tutto statico: non serve PHP, database o altro sul server.
 
 1) ESTRAI LO ZIP (tasto destro > Estrai tutto) in una cartella nuova.
    Non aprire il sito direttamente dentro lo zip.
 
-DUE VERSIONI
-   - atelier-noble-ink-sito.zip            : completa, con cartella api/ (form PHP)
-   - atelier-noble-ink-sito-senza-php.zip  : senza cartella api/ (nessun file .php o .htaccess).
-     Usala se il tuo hosting non ha PHP o se l'FTP rifiuta quei file.
-
-2) PROVA IN LOCALE (senza installare nulla)
-   Fai doppio clic su  index.html  : si apre nel browser.
-   (Il form di contatto non invia email in questa modalita'. Il resto funziona.)
+2) PROVA IN LOCALE
+   Doppio clic su index.html : si apre nel browser.
 
 3) CARICA SULL'HOSTING
    Carica il CONTENUTO della cartella estratta (non la cartella stessa)
-   nella cartella scelta sull'hosting, es. public_html/ oppure sitiweb/AtelierNobleInk/.
+   nella cartella scelta, es. public_html/ oppure sitiweb/AtelierNobleInk/.
    Funziona anche in sottocartella.
 
-XAMPP (opzionale)
-   Estrai in C:\xampp\htdocs\atelier\  e apri http://localhost/atelier/
-
-SE L'FTP DA ERRORE O SI FERMA A META'
-   - Scegli la versione senza PHP (vedi sopra): sono 26 file in meno di 2,2 MB.
-   - Nel programma FTP: connessioni simultanee = 1 o 2, modalita' Passiva, trasferimento Binario.
-   - Carica una cartella alla volta (assets, gallery, team, aftercare) e poi index.html.
-   - Se l'hosting ha un File Manager, carica lo ZIP e usa "Estrai" sul server (un solo file da inviare).
-   - Se un file fallisce, annota il nome: di solito e' sempre lo stesso.
-
-SE VEDI LA PAGINA BIANCA SULL'HOSTING
-   - Verifica che tutti i file siano stati caricati (cartella assets/ compresa).
-   - Apri l'indirizzo CON la barra finale, es. https://dominio/cartella/
-     (da questa versione il sito la aggiunge da solo).
-   - Premi F12 > Console e leggi l'errore in rosso.
-
 FORM DI CONTATTO
-   Usa la cartella api/ (PHP). Se l'hosting non ha PHP, il form mostra un messaggio
-   con il link per scrivere via email; WhatsApp funziona comunque.
+   Il form apre WhatsApp con il messaggio gia' scritto; il visitatore preme "Invia".
+   Il numero non e' scritto in chiaro nella pagina (protezione anti-spam).
+
+SE L'FTP DA' ERRORE O SI FERMA A META'
+   - Controlla lo spazio libero sull'hosting.
+   - Connessioni simultanee = 1 o 2, modalita' Passiva, trasferimento Binario.
+   - Se c'e' un File Manager, carica lo ZIP e usa "Estrai" sul server.
+
+SE VEDI LA PAGINA BIANCA
+   - Verifica che tutti i file siano stati caricati (cartella assets/ compresa).
+   - Apri l'indirizzo con la barra finale, es. https://dominio/cartella/
+   - Premi F12 > Console e leggi l'errore in rosso.
 
 FILM
    Quando il video e' pronto, caricalo come video/atelier-film.mp4
 
-ULTIMO AGGIORNAMENTO: 2026-11-08 (apribile con doppio clic; corregge l'indirizzo senza / finale)
+ULTIMO AGGIORNAMENTO: 2026-11-08 (form su WhatsApp, numero protetto, senza PHP)

@@ -22,7 +22,7 @@ Il comando genera la cartella `dist/`. Basta caricare **il contenuto** di `dist/
 - Colori e font: `tailwind.config.js`
 - Testi e sezioni: componenti in `src/components/`
 - Logo: `src/components/Logo.jsx` (SVG) e `public/favicon.svg`
-- Email, telefono e WhatsApp: `src/config.js`
+- Email e numero WhatsApp: `src/config.js`
 
 ## Sito pronto da caricare
 
@@ -32,12 +32,12 @@ In `rilasci/atelier-noble-ink-sito.zip` c'è sempre l'ultima versione già compi
 
 Team (Valerio Bruni, Chiara Morandi, Matteo Vieri), stili, recensioni e foto sono **segnaposto** per la presentazione. Si sostituiscono in `src/i18n/extras.js` (testi nelle 4 lingue) e nelle cartelle `public/team`, `public/gallery`.
 
-## Form contatti (PHP)
+## Form contatti (WhatsApp)
 
-Il form invia a `api/contact.php` (cartella `public/api/`, copiata in `dist/api/`). Serve un hosting con PHP.
-- Destinatario e mittente: `api/config.php` (protetto da `.htaccess`, non scaricabile dal browser).
-- Protezioni incluse: honeypot, limite di invii per IP, controllo dell'origine.
-- In sviluppo (`npm run dev`) PHP non c'è: il form mostra l'errore con il link di ripiego via email.
+Il form non usa server né PHP: compone il messaggio (nome, email facoltativa, descrizione) e apre WhatsApp già compilato; il visitatore preme "Invia". Funziona su qualsiasi hosting statico.
+- Il numero WhatsApp **non compare in chiaro** nel codice né nella pagina (in `src/config.js` è codificato in pezzi e ricostruito solo al click, per ridurre lo spam dei bot). Nella pagina si vede mascherato (`+34 ••• ••• •••`).
+- Per cambiare numero: in `src/config.js` sostituisci `PHONE_PARTS` (istruzioni nel commento del file).
+- L'email dello studio resta visibile come contatto (`STUDIO_EMAIL`).
 
 ## Film d'atelier
 
@@ -45,7 +45,7 @@ Carica `public/video/atelier-film.mp4` per attivare il video. Finché non esiste
 
 ## WhatsApp
 
-Numero e messaggi precompilati: `src/config.js` e `contact.waMessage` in `src/i18n/extras.js`.
+Messaggi precompilati: `contact.waMessage` in `src/i18n/extras.js`.
 
 ## Immagini di esempio
 
