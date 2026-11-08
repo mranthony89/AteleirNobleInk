@@ -6,6 +6,11 @@ File: atelier-noble-ink-sito.zip   (si aggiorna ad ogni modifica del sito)
 1) ESTRAI LO ZIP (tasto destro > Estrai tutto) in una cartella nuova.
    Non aprire il sito direttamente dentro lo zip.
 
+DUE VERSIONI
+   - atelier-noble-ink-sito.zip            : completa, con cartella api/ (form PHP)
+   - atelier-noble-ink-sito-senza-php.zip  : senza cartella api/ (nessun file .php o .htaccess).
+     Usala se il tuo hosting non ha PHP o se l'FTP rifiuta quei file.
+
 2) PROVA IN LOCALE (senza installare nulla)
    Fai doppio clic su  index.html  : si apre nel browser.
    (Il form di contatto non invia email in questa modalita'. Il resto funziona.)
@@ -17,6 +22,13 @@ File: atelier-noble-ink-sito.zip   (si aggiorna ad ogni modifica del sito)
 
 XAMPP (opzionale)
    Estrai in C:\xampp\htdocs\atelier\  e apri http://localhost/atelier/
+
+SE L'FTP DA ERRORE O SI FERMA A META'
+   - Scegli la versione senza PHP (vedi sopra): sono 26 file in meno di 2,2 MB.
+   - Nel programma FTP: connessioni simultanee = 1 o 2, modalita' Passiva, trasferimento Binario.
+   - Carica una cartella alla volta (assets, gallery, team, aftercare) e poi index.html.
+   - Se l'hosting ha un File Manager, carica lo ZIP e usa "Estrai" sul server (un solo file da inviare).
+   - Se un file fallisce, annota il nome: di solito e' sempre lo stesso.
 
 SE VEDI LA PAGINA BIANCA SULL'HOSTING
    - Verifica che tutti i file siano stati caricati (cartella assets/ compresa).
