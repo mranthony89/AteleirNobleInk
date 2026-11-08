@@ -18,6 +18,12 @@ File: atelier-noble-ink-sito.zip   (si aggiorna ad ogni modifica del sito)
 XAMPP (opzionale)
    Estrai in C:\xampp\htdocs\atelier\  e apri http://localhost/atelier/
 
+SE VEDI LA PAGINA BIANCA SULL'HOSTING
+   - Verifica che tutti i file siano stati caricati (cartella assets/ compresa).
+   - Apri l'indirizzo CON la barra finale, es. https://dominio/cartella/
+     (da questa versione il sito la aggiunge da solo).
+   - Premi F12 > Console e leggi l'errore in rosso.
+
 FORM DI CONTATTO
    Usa la cartella api/ (PHP). Se l'hosting non ha PHP, il form mostra un messaggio
    con il link per scrivere via email; WhatsApp funziona comunque.
@@ -25,4 +31,4 @@ FORM DI CONTATTO
 FILM
    Quando il video e' pronto, caricalo come video/atelier-film.mp4
 
-ULTIMO AGGIORNAMENTO: 2026-11-08 (apribile con doppio clic su index.html)
+ULTIMO AGGIORNAMENTO: 2026-11-08 (apribile con doppio clic; corregge l'indirizzo senza / finale)

@@ -2,6 +2,16 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Se l'indirizzo della cartella non finisce con "/" (es. /sitiweb/Atelier), alcuni server non
+      // lo aggiungono da soli e i percorsi relativi si rompono (pagina bianca): lo aggiungiamo qui.
+      (function () {
+        var p = location.pathname
+        if (!/\/$/.test(p) && !/\.[a-z0-9]+$/i.test(p)) {
+          location.replace(p + '/' + location.search + location.hash)
+        }
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Atelier Noble Ink — Tattoo Studio. Dove l'arte incontra la pelle e ogni tatuaggio diventa un'opera senza tempo." />
