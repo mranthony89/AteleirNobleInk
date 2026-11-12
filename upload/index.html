@@ -23,9 +23,6 @@
   h1 { font-size:1.5rem; margin:8px 0 4px; line-height:1.2; }
   h2 { font-size:1.05rem; margin:28px 0 10px; }
   p.lead { margin:4px 0 16px; color:var(--stone); }
-  .lang { display:flex; gap:4px; flex-shrink:0; margin-top:8px; }
-  .lang button { min-width:40px; height:36px; border:1px solid var(--line); background:#fff; border-radius:8px; font:inherit; font-size:.8rem; font-weight:600; color:var(--ink); }
-  .lang button[aria-pressed="true"] { background:var(--gold); border-color:var(--gold); }
 
   .drop { display:block; border:2px dashed #cfc6b3; background:#fff; border-radius:16px; padding:28px 16px; text-align:center; transition:.15s; }
   .drop.over { border-color:var(--gold); background:#fff8e1; transform:scale(1.01); }
@@ -80,11 +77,6 @@
       <h1 data-t="title">Carica foto e video</h1>
       <p class="lead" data-t="intro"></p>
     </div>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-lang="it">IT</button>
-      <button type="button" data-lang="es">ES</button>
-      <button type="button" data-lang="en">EN</button>
-    </div>
   </header>
 
   <label class="drop" id="drop" for="pick">
@@ -130,7 +122,7 @@
 (function () {
   'use strict';
 
-  // ---------- testi (italiano, spagnolo, inglese) ----------
+  // ---------- testi (solo italiano) ----------
   var TXT = {
     it: {
       title: 'Carica foto e video',
@@ -149,51 +141,9 @@
       e_bad_ext: 'Formato non accettato', e_too_big: 'File troppo grande', e_no_space: 'Spazio insufficiente sul server', e_empty: 'File vuoto',
       e_duplicate: 'Nome già presente sul server', e_io: 'Errore del server, riprova più tardi', e_generic: 'Caricamento non riuscito',
       s: ['s', 'min', 'h']
-    },
-    es: {
-      title: 'Subir fotos y vídeos',
-      intro: 'Selecciona todos los archivos que quieras enviarnos, incluso vídeos pesados y en cualquier formato. Puedes subir los que quieras, también en varias veces.',
-      dropTitle: 'Arrastra aquí los archivos', dropSub: 'o toca el botón para elegirlos desde el teléfono o el ordenador',
-      pick: 'Elegir fotos y vídeos', pickAny: 'Elegir otros archivos (cualquier formato)',
-      keepOpen: 'La subida está en curso: no cierres esta página y deja la pantalla encendida hasta que aparezca "Todo subido".',
-      queueTitle: 'En curso y pendientes', doneTitle: 'Subidos correctamente',
-      waiting: 'En espera…', checking: 'Comprobando…', uploading: 'Subiendo…', done: 'Subido ✓',
-      dup: 'Ya existe un archivo con este nombre', dupSession: 'Ya has añadido un archivo con este nombre',
-      upAnyway: 'Subir de todos modos', remove: 'Quitar', retry: 'Reintentar', dupAll: 'Subir todos los duplicados', dupNone: 'Ignorar los duplicados',
-      reconnect: 'Conexión perdida: reintentando…', offline: 'Sin conexión: continúo cuando vuelva…',
-      count: '{d} de {n} completados', speed: '{s}/s', eta: 'Faltan unos {t}', of: '{a} de {b}',
-      allDone: 'Todo subido ✓ ¡Gracias!', allDoneErr: 'Algunos archivos no se han subido: revisa la lista de abajo.',
-      totals: '{n} archivos · {s}', renamed: 'guardado como {n}',
-      e_bad_ext: 'Formato no aceptado', e_too_big: 'Archivo demasiado grande', e_no_space: 'Espacio insuficiente en el servidor', e_empty: 'Archivo vacío',
-      e_duplicate: 'Nombre ya existente en el servidor', e_io: 'Error del servidor, inténtalo más tarde', e_generic: 'No se pudo subir',
-      s: ['s', 'min', 'h']
-    },
-    en: {
-      title: 'Upload photos and videos',
-      intro: 'Select all the files you want to send us, including large videos in any format. Upload as many as you like, in one go or in several.',
-      dropTitle: 'Drag your files here', dropSub: 'or tap the button to choose them from your phone or computer',
-      pick: 'Choose photos and videos', pickAny: 'Choose other files (any format)',
-      keepOpen: 'Upload in progress: do not close this page and keep the screen on until "All uploaded" appears.',
-      queueTitle: 'In progress and waiting', doneTitle: 'Uploaded successfully',
-      waiting: 'Waiting…', checking: 'Checking…', uploading: 'Uploading…', done: 'Uploaded ✓',
-      dup: 'A file with this name already exists', dupSession: 'You already added a file with this name',
-      upAnyway: 'Upload anyway', remove: 'Remove', retry: 'Retry', dupAll: 'Upload all duplicates anyway', dupNone: 'Ignore duplicates',
-      reconnect: 'Connection lost: retrying…', offline: 'Offline: will resume when you are back…',
-      count: '{d} of {n} completed', speed: '{s}/s', eta: 'About {t} left', of: '{a} of {b}',
-      allDone: 'All uploaded ✓ Thank you!', allDoneErr: 'Some files were not uploaded: check the list below.',
-      totals: '{n} files · {s}', renamed: 'saved as {n}',
-      e_bad_ext: 'Format not accepted', e_too_big: 'File too large', e_no_space: 'Not enough space on the server', e_empty: 'Empty file',
-      e_duplicate: 'Name already on the server', e_io: 'Server error, try again later', e_generic: 'Upload failed',
-      s: ['s', 'min', 'h']
     }
   };
   var lang = 'it';
-  function pickLang() {
-    var q = (location.search.match(/[?&]lang=(it|es|en)/) || [])[1];
-    var saved = null; try { saved = localStorage.getItem('upload-lang'); } catch (e) {}
-    var nav = (navigator.language || 'it').slice(0, 2).toLowerCase();
-    lang = q || saved || (TXT[nav] ? nav : 'it');
-  }
   function t(k, v) {
     var s = (TXT[lang][k] !== undefined ? TXT[lang][k] : TXT.it[k]) || k;
     if (v) for (var x in v) s = s.replace('{' + x + '}', v[x]);
@@ -465,14 +415,10 @@
   function applyLang() {
     document.documentElement.lang = lang;
     Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (n) { n.textContent = t(n.getAttribute('data-t')); });
-    Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
     document.title = t('title');
-    items.forEach(function (it) { if (it.status === 'dup' && it.msg) it.msg = it.msg === TXT.it.dupSession || it.msg === TXT.es.dupSession || it.msg === TXT.en.dupSession ? t('dupSession') : t('dup'); if (it.status === 'done') it.msg = t('done') + (it.finalName && it.finalName.toLowerCase() !== it.name.toLowerCase() ? ' · ' + t('renamed', { n: it.finalName }) : ''); if (it.status === 'error' && it.code) it.msg = t(it.code); render(it); });
+    items.forEach(function (it) {  if (it.status === 'done') it.msg = t('done') + (it.finalName && it.finalName.toLowerCase() !== it.name.toLowerCase() ? ' · ' + t('renamed', { n: it.finalName }) : ''); if (it.status === 'error' && it.code) it.msg = t(it.code); render(it); });
     refresh();
   }
-  Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) {
-    b.addEventListener('click', function () { lang = b.getAttribute('data-lang'); try { localStorage.setItem('upload-lang', lang); } catch (e) {} applyLang(); });
-  });
 
   // ---------- selezione e trascinamento ----------
   function onPick(e) { addFiles(e.target.files); e.target.value = ''; }
@@ -487,7 +433,7 @@
   $('dupNone').addEventListener('click', function () { items.forEach(function (i) { if (i.status === 'dup') { i.status = 'removed'; render(i); } }); refresh(); });
 
   // ---------- avvio ----------
-  pickLang(); applyLang();
+  applyLang();
   api('config').then(function (r) { if (r && r.ok) { cfg.chunk = r.chunk || cfg.chunk; cfg.maxFile = r.maxFile; } }).catch(function () {});
 })();
 </script>

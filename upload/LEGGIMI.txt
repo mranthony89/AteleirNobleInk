@@ -12,7 +12,7 @@ COSA FA
 - Se la connessione cade, riprende da dove era arrivato (anche rifacendo la selezione).
 - Barra di avanzamento totale e per file, velocita', tempo residuo, schermo tenuto acceso.
 - Elenco dei file caricati nella sessione. Duplicati (stesso nome) segnalati: "Carica comunque" li salva come "nome (2).ext".
-- Italiano / Spagnolo / Inglese (si sceglie in automatico dal telefono).
+- Pagina in italiano.
 
 IMPOSTAZIONI: config.php (dimensione massima, formati accettati, cartella).
 SICUREZZA: la pagina e' senza password ma non indicizzabile; accetta solo formati foto/video/grafica
