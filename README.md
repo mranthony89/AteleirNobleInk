@@ -54,3 +54,7 @@ Le foto di stili (`public/gallery/`) e cura del tatuaggio (`public/aftercare/`) 
 ## Testi della cura del tatuaggio
 
 Verificati su fonti dermatologiche (Cleveland Clinic, Healthline), sul produttore delle pellicole trasparenti (Saniderm) e su siti di studi di tatuaggio. Punti chiave: la pellicola trasparente resta in genere 2–4 giorni, desquamazione e crosticine possono comparire ma non sempre, niente immersioni per 2–4 settimane, crema solare solo a tatuaggio guarito. Sono nel file `src/i18n/extras.js` (chiave `aftercare`).
+
+## Pagina di caricamento file (separata dal sito)
+
+Cartella `upload/` (HTML + PHP, senza build). Permette a un cliente con il link di caricare foto e video anche pesanti da telefono; i file arrivano nella cartella `uploads/` sul server. Zip pronto: `rilasci/atelier-upload.zip` (istruzioni in `upload/LEGGIMI.txt`). Richiede un hosting con PHP; non fa parte dello zip del sito.

@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script>
+  // Se l'indirizzo non finisce con "/" alcuni server non lo aggiungono e i percorsi si rompono: lo aggiungiamo qui.
+  (function () {
+    var p = location.pathname;
+    if (!/\/$/.test(p) && !/\.[a-z0-9]+$/i.test(p)) location.replace(p + '/' + location.search + location.hash);
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#262626">
+<title>Carica foto e video</title>
+<style>
+  :root { --gold:#DAAF37; --ink:#262626; --stone:#5A5A5A; --line:#e3ddd2; --bg:#F7F5F0; --ok:#2E7D4F; --warn:#B26A00; --err:#B3261E; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:16px 16px 96px; }
+  header { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  h1 { font-size:1.5rem; margin:8px 0 4px; line-height:1.2; }
+  h2 { font-size:1.05rem; margin:28px 0 10px; }
+  p.lead { margin:4px 0 16px; color:var(--stone); }
+  .lang { display:flex; gap:4px; flex-shrink:0; margin-top:8px; }
+  .lang button { min-width:40px; height:36px; border:1px solid var(--line); background:#fff; border-radius:8px; font:inherit; font-size:.8rem; font-weight:600; color:var(--ink); }
+  .lang button[aria-pressed="true"] { background:var(--gold); border-color:var(--gold); }
+
+  .drop { display:block; border:2px dashed #cfc6b3; background:#fff; border-radius:16px; padding:28px 16px; text-align:center; transition:.15s; }
+  .drop.over { border-color:var(--gold); background:#fff8e1; transform:scale(1.01); }
+  .drop .big { font-size:1.1rem; font-weight:600; margin:0 0 4px; }
+  .drop .sub { margin:0 0 16px; color:var(--stone); font-size:.95rem; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:12px 22px; border-radius:12px; border:0; background:var(--gold); color:#111; font:inherit; font-weight:700; font-size:1.05rem; cursor:pointer; }
+  .btn:active { transform:translateY(1px); }
+  .btn.sec { background:#fff; border:1px solid #cfc6b3; font-weight:600; font-size:.95rem; min-height:44px; padding:8px 16px; }
+  .btn.small { min-height:40px; padding:6px 14px; font-size:.9rem; }
+  .links { margin-top:14px; }
+  input[type=file] { display:none; }
+
+  .notice { display:none; margin:14px 0 0; padding:12px 14px; border-radius:12px; background:#fff3cd; border:1px solid #f0d98a; font-size:.95rem; }
+  .notice.show { display:block; }
+  .alldone { display:none; margin:14px 0 0; padding:16px; border-radius:12px; background:#e6f4ea; border:1px solid #b7dfc3; color:#1d5b36; font-weight:600; text-align:center; font-size:1.05rem; }
+  .alldone.show { display:block; }
+
+  .summary { position:sticky; top:0; z-index:5; display:none; margin:14px -16px 0; padding:10px 16px 12px; background:rgba(247,245,240,.97); border-bottom:1px solid var(--line); }
+  .summary.show { display:block; }
+  .summary .row { display:flex; justify-content:space-between; gap:8px; font-size:.9rem; color:var(--stone); margin-top:6px; flex-wrap:wrap; }
+  .summary .row b { color:var(--ink); }
+  .bar { height:12px; background:#e9e4d8; border-radius:99px; overflow:hidden; position:relative; }
+  .bar > i { display:block; height:100%; width:0; background:var(--gold); border-radius:99px; transition:width .25s ease; }
+  .bar.busy > i { background:linear-gradient(90deg,var(--gold),#f3d77a,var(--gold)); background-size:200% 100%; animation:slide 1.2s linear infinite; }
+  .bar.small { height:8px; margin-top:8px; }
+  @keyframes slide { to { background-position:-200% 0; } }
+  .pct { font-size:1.15rem; font-weight:700; }
+
+  ul { list-style:none; margin:0; padding:0; }
+  li.item { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin-bottom:8px; }
+  li.item .top { display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+  li.item .name { font-weight:600; word-break:break-all; }
+  li.item .meta { color:var(--stone); font-size:.85rem; white-space:nowrap; }
+  li.item .state { font-size:.9rem; margin-top:4px; color:var(--stone); }
+  li.item .actions { margin-top:8px; display:flex; gap:8px; flex-wrap:wrap; }
+  li.item.dup { border-color:#f0c36d; background:#fffaf0; }
+  li.item.dup .state { color:var(--warn); font-weight:600; }
+  li.item.error { border-color:#f0b4af; background:#fff6f5; }
+  li.item.error .state { color:var(--err); font-weight:600; }
+  li.item.done { border-color:#b7dfc3; }
+  li.item.done .state { color:var(--ok); font-weight:600; }
+  .empty { color:var(--stone); font-size:.95rem; padding:6px 2px; }
+  .bulk { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 10px; }
+  .totals { color:var(--stone); font-size:.9rem; margin:-4px 0 10px; }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1 data-t="title">Carica foto e video</h1>
+      <p class="lead" data-t="intro"></p>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="it">IT</button>
+      <button type="button" data-lang="es">ES</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <label class="drop" id="drop" for="pick">
+    <p class="big" data-t="dropTitle"></p>
+    <p class="sub" data-t="dropSub"></p>
+    <span class="btn" id="pickBtn" data-t="pick"></span>
+    <div class="links">
+      <button type="button" class="btn sec" id="pickAnyBtn" data-t="pickAny"></button>
+    </div>
+  </label>
+  <input id="pick" type="file" multiple accept="image/*,video/*">
+  <input id="pickAny" type="file" multiple>
+
+  <div class="notice" id="keepOpen" data-t="keepOpen"></div>
+  <div class="alldone" id="allDone"></div>
+
+  <section class="summary" id="summary" aria-live="polite">
+    <div class="bar busy" id="totalBar"><i id="totalFill"></i></div>
+    <div class="row">
+      <span><span class="pct" id="pct">0%</span> · <b id="countTxt"></b></span>
+      <span id="speedTxt"></span>
+    </div>
+    <div class="row"><span id="bytesTxt"></span><span id="etaTxt"></span></div>
+  </section>
+
+  <section id="queueSec" class="hidden">
+    <h2 data-t="queueTitle"></h2>
+    <div class="bulk hidden" id="dupBulk">
+      <button type="button" class="btn small" id="dupAll" data-t="dupAll"></button>
+      <button type="button" class="btn sec small" id="dupNone" data-t="dupNone"></button>
+    </div>
+    <ul id="queue"></ul>
+  </section>
+
+  <section id="doneSec" class="hidden">
+    <h2><span data-t="doneTitle"></span> (<span id="doneCount">0</span>)</h2>
+    <p class="totals" id="doneTotals"></p>
+    <ul id="done"></ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---------- testi (italiano, spagnolo, inglese) ----------
+  var TXT = {
+    it: {
+      title: 'Carica foto e video',
+      intro: 'Seleziona tutti i file che vuoi inviarci, anche video pesanti e in qualsiasi formato. Puoi caricarne quanti ne vuoi, anche in più volte.',
+      dropTitle: 'Trascina qui i file', dropSub: 'oppure tocca il pulsante per sceglierli dal telefono o dal computer',
+      pick: 'Scegli foto e video', pickAny: 'Scegli altri file (qualsiasi formato)',
+      keepOpen: 'Il caricamento è in corso: non chiudere questa pagina e lascia lo schermo acceso finché non compare "Tutto caricato".',
+      queueTitle: 'In corso e da caricare', doneTitle: 'Caricati con successo',
+      waiting: 'In attesa…', checking: 'Controllo…', uploading: 'Caricamento…', done: 'Caricato ✓',
+      dup: 'Esiste già un file con questo nome', dupSession: 'Hai già aggiunto un file con questo nome',
+      upAnyway: 'Carica comunque', remove: 'Rimuovi', retry: 'Riprova', dupAll: 'Carica comunque tutti i duplicati', dupNone: 'Ignora i duplicati',
+      reconnect: 'Connessione persa: riprovo…', offline: 'Senza connessione: riprendo appena torna…',
+      count: '{d} di {n} completati', speed: '{s}/s', eta: 'Mancano circa {t}', of: '{a} di {b}',
+      allDone: 'Tutto caricato ✓ Grazie!', allDoneErr: 'Alcuni file non sono stati caricati: controlla l’elenco qui sotto.',
+      totals: '{n} file · {s}', renamed: 'salvato come {n}',
+      e_bad_ext: 'Formato non accettato', e_too_big: 'File troppo grande', e_no_space: 'Spazio insufficiente sul server', e_empty: 'File vuoto',
+      e_duplicate: 'Nome già presente sul server', e_io: 'Errore del server, riprova più tardi', e_generic: 'Caricamento non riuscito',
+      s: ['s', 'min', 'h']
+    },
+    es: {
+      title: 'Subir fotos y vídeos',
+      intro: 'Selecciona todos los archivos que quieras enviarnos, incluso vídeos pesados y en cualquier formato. Puedes subir los que quieras, también en varias veces.',
+      dropTitle: 'Arrastra aquí los archivos', dropSub: 'o toca el botón para elegirlos desde el teléfono o el ordenador',
+      pick: 'Elegir fotos y vídeos', pickAny: 'Elegir otros archivos (cualquier formato)',
+      keepOpen: 'La subida está en curso: no cierres esta página y deja la pantalla encendida hasta que aparezca "Todo subido".',
+      queueTitle: 'En curso y pendientes', doneTitle: 'Subidos correctamente',
+      waiting: 'En espera…', checking: 'Comprobando…', uploading: 'Subiendo…', done: 'Subido ✓',
+      dup: 'Ya existe un archivo con este nombre', dupSession: 'Ya has añadido un archivo con este nombre',
+      upAnyway: 'Subir de todos modos', remove: 'Quitar', retry: 'Reintentar', dupAll: 'Subir todos los duplicados', dupNone: 'Ignorar los duplicados',
+      reconnect: 'Conexión perdida: reintentando…', offline: 'Sin conexión: continúo cuando vuelva…',
+      count: '{d} de {n} completados', speed: '{s}/s', eta: 'Faltan unos {t}', of: '{a} de {b}',
+      allDone: 'Todo subido ✓ ¡Gracias!', allDoneErr: 'Algunos archivos no se han subido: revisa la lista de abajo.',
+      totals: '{n} archivos · {s}', renamed: 'guardado como {n}',
+      e_bad_ext: 'Formato no aceptado', e_too_big: 'Archivo demasiado grande', e_no_space: 'Espacio insuficiente en el servidor', e_empty: 'Archivo vacío',
+      e_duplicate: 'Nombre ya existente en el servidor', e_io: 'Error del servidor, inténtalo más tarde', e_generic: 'No se pudo subir',
+      s: ['s', 'min', 'h']
+    },
+    en: {
+      title: 'Upload photos and videos',
+      intro: 'Select all the files you want to send us, including large videos in any format. Upload as many as you like, in one go or in several.',
+      dropTitle: 'Drag your files here', dropSub: 'or tap the button to choose them from your phone or computer',
+      pick: 'Choose photos and videos', pickAny: 'Choose other files (any format)',
+      keepOpen: 'Upload in progress: do not close this page and keep the screen on until "All uploaded" appears.',
+      queueTitle: 'In progress and waiting', doneTitle: 'Uploaded successfully',
+      waiting: 'Waiting…', checking: 'Checking…', uploading: 'Uploading…', done: 'Uploaded ✓',
+      dup: 'A file with this name already exists', dupSession: 'You already added a file with this name',
+      upAnyway: 'Upload anyway', remove: 'Remove', retry: 'Retry', dupAll: 'Upload all duplicates anyway', dupNone: 'Ignore duplicates',
+      reconnect: 'Connection lost: retrying…', offline: 'Offline: will resume when you are back…',
+      count: '{d} of {n} completed', speed: '{s}/s', eta: 'About {t} left', of: '{a} of {b}',
+      allDone: 'All uploaded ✓ Thank you!', allDoneErr: 'Some files were not uploaded: check the list below.',
+      totals: '{n} files · {s}', renamed: 'saved as {n}',
+      e_bad_ext: 'Format not accepted', e_too_big: 'File too large', e_no_space: 'Not enough space on the server', e_empty: 'Empty file',
+      e_duplicate: 'Name already on the server', e_io: 'Server error, try again later', e_generic: 'Upload failed',
+      s: ['s', 'min', 'h']
+    }
+  };
+  var lang = 'it';
+  function pickLang() {
+    var q = (location.search.match(/[?&]lang=(it|es|en)/) || [])[1];
+    var saved = null; try { saved = localStorage.getItem('upload-lang'); } catch (e) {}
+    var nav = (navigator.language || 'it').slice(0, 2).toLowerCase();
+    lang = q || saved || (TXT[nav] ? nav : 'it');
+  }
+  function t(k, v) {
+    var s = (TXT[lang][k] !== undefined ? TXT[lang][k] : TXT.it[k]) || k;
+    if (v) for (var x in v) s = s.replace('{' + x + '}', v[x]);
+    return s;
+  }
+
+  // ---------- utilità ----------
+  function $(id) { return document.getElementById(id); }
+  function fmtSize(b) {
+    if (b < 1024) return b + ' B';
+    var u = ['KB', 'MB', 'GB', 'TB'], i = -1;
+    do { b /= 1024; i++; } while (b >= 1024 && i < 3);
+    return b.toFixed(b >= 100 ? 0 : 1).replace('.', ',') + ' ' + u[i];
+  }
+  function fmtTime(sec) {
+    var u = TXT[lang].s;
+    if (sec < 60) return Math.max(1, Math.round(sec)) + ' ' + u[0];
+    if (sec < 3600) return Math.round(sec / 60) + ' ' + u[1];
+    return Math.floor(sec / 3600) + ' ' + u[2] + ' ' + Math.round((sec % 3600) / 60) + ' ' + u[1];
+  }
+  // identificativo stabile del file (nome+dimensione+data): permette di riprendere un caricamento interrotto
+  function hash53(str) {
+    var h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+    for (var i = 0; i < str.length; i++) {
+      var c = str.charCodeAt(i);
+      h1 = Math.imul(h1 ^ c, 2654435761); h2 = Math.imul(h2 ^ c, 1597334677);
+    }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(16);
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function online() { return navigator.onLine !== false; }
+  function waitOnline() {
+    if (online()) return Promise.resolve();
+    return new Promise(function (res) {
+      var f = function () { window.removeEventListener('online', f); res(); };
+      window.addEventListener('online', f);
+    });
+  }
+
+  // ---------- stato ----------
+  var cfg = { chunk: 2 * 1024 * 1024 };
+  var items = [];           // tutti i file della sessione
+  var active = 0, CONCURRENCY = 2, seq = 0;
+  var samples = [];         // per velocità/ETA
+  var wakeLock = null;
+
+  function api(action, params, body) {
+    var q = Object.keys(params || {}).map(function (k) { return k + '=' + encodeURIComponent(params[k]); }).join('&');
+    return fetch('upload.php?action=' + action + (q ? '&' + q : ''), body ? { method: 'POST', body: JSON.stringify(body) } : {})
+      .then(function (r) { return r.json(); });
+  }
+
+  // ---------- schermo acceso durante il caricamento ----------
+  function lockScreen() {
+    if (!('wakeLock' in navigator) || wakeLock) return;
+    navigator.wakeLock.request('screen').then(function (l) { wakeLock = l; l.addEventListener('release', function () { wakeLock = null; }); }).catch(function () {});
+  }
+  function unlockScreen() { if (wakeLock) { wakeLock.release().catch(function () {}); wakeLock = null; } }
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible' && busy()) lockScreen(); });
+  window.addEventListener('beforeunload', function (e) { if (busy()) { e.preventDefault(); e.returnValue = ''; } });
+
+  function busy() { return items.some(function (i) { return i.status === 'uploading' || i.status === 'queued' || i.status === 'checking'; }); }
+
+  // ---------- aggiunta file ----------
+  function addFiles(list) {
+    var added = [];
+    Array.prototype.forEach.call(list, function (f) {
+      if (!f || !f.name) return;
+      var key = hash53(f.name + '|' + f.size + '|' + f.lastModified);
+      // lo stesso identico file già in lista (in attesa/in corso/caricato): lo ignoro
+      if (items.some(function (i) { return i.key === key && i.status !== 'removed' && i.status !== 'error'; })) return;
+      var it = { n: ++seq, key: key, id: key + '-' + f.size.toString(36), file: f, name: f.name, size: f.size, status: 'checking', loaded: 0, mode: 'skip', msg: '', finalName: '' };
+      items.push(it); added.push(it);
+    });
+    if (!added.length) return;
+    added.forEach(render);
+    refresh();
+
+    api('check', null, { names: added.map(function (i) { return i.name; }) }).then(function (r) {
+      var res = (r && r.results) || [];
+      added.forEach(function (it, idx) {
+        var lower = it.name.toLowerCase();
+        var sameSession = items.some(function (o) { return o !== it && o.n < it.n && o.status !== 'removed' && o.status !== 'error' && o.name.toLowerCase() === lower; });
+        if (it.size === 0) { fail(it, 'e_empty'); }
+        else if (res[idx] === 'bad') { fail(it, 'e_bad_ext'); }
+        else if (it.size > (cfg.maxFile || Infinity)) { fail(it, 'e_too_big'); }
+        else if (res[idx] === 'dup') { it.status = 'dup'; it.msg = t('dup'); }
+        else if (sameSession) { it.status = 'dup'; it.msg = t('dupSession'); }
+        else { it.status = 'queued'; }
+        render(it);
+      });
+      refresh(); pump();
+    }).catch(function () {
+      // controllo non riuscito: procedo comunque (il server rifiuta quello che non va)
+      added.forEach(function (it) { it.status = 'queued'; render(it); });
+      refresh(); pump();
+    });
+  }
+
+  function fail(it, code) { it.status = 'error'; it.code = code; it.msg = t(code) || t('e_generic'); }
+
+  // ---------- coda ----------
+  function pump() {
+    while (active < CONCURRENCY) {
+      var next = items.filter(function (i) { return i.status === 'queued'; })[0];
+      if (!next) break;
+      active++; upload(next).then(function () { active--; pump(); refresh(); });
+    }
+    if (busy()) lockScreen(); else unlockScreen();
+  }
+
+  function upload(it) {
+    it.status = 'uploading'; it.t0 = Date.now(); render(it); refresh();
+    var chunk = cfg.chunk, attempts = 0;
+    return api('offset', { id: it.id, name: it.name, size: it.size }).then(function (r) { return Math.min((r && r.offset) || 0, it.size); }, function () { return 0; })
+      .then(function (offset) {
+        it.loaded = offset;
+        function step() {
+          if (it.status === 'removed') return Promise.resolve();
+          if (offset >= it.size) return Promise.resolve();
+          var end = Math.min(offset + chunk, it.size);
+          return waitOnline().then(function () { return sendChunk(it, it.file.slice(offset, end), offset); }).then(function (res) {
+            attempts = 0; it.note = '';
+            if (res.status === 200 && res.json.ok) {
+              offset = res.json.received; it.loaded = offset;
+              if (res.json.done) { it.finalName = res.json.finalName || it.name; return; }
+              return step();
+            }
+            if (res.status === 409 && res.json.error === 'offset_mismatch') { offset = res.json.received || 0; it.loaded = offset; return step(); }
+            if (res.status === 413 && chunk > 256 * 1024) { chunk = Math.max(256 * 1024, Math.floor(chunk / 2)); cfg.chunk = Math.min(cfg.chunk, chunk); return step(); }
+            var code = res.json && res.json.error;
+            if (res.status >= 500 && code !== 'no_space' && code !== 'io' && attempts < 6) return retry();
+            if (code === 'io' && attempts < 3) return retry();
+            throw { code: code };
+          }, function () {
+            // errore di rete
+            if (attempts < 8) return retry();
+            throw { code: 'network' };
+          });
+        }
+        function retry() {
+          attempts++; it.note = online() ? t('reconnect') : t('offline'); render(it);
+          return wait(Math.min(15000, 1000 * Math.pow(2, attempts - 1))).then(step);
+        }
+        return step();
+      })
+      .then(function () {
+        if (it.status === 'removed') return;
+        it.status = 'done'; it.loaded = it.size; it.msg = t('done');
+        if (it.finalName && it.finalName.toLowerCase() !== sanitizeLike(it.name)) it.msg += ' · ' + t('renamed', { n: it.finalName });
+        render(it);
+      })
+      .catch(function (e) {
+        var map = { bad_ext: 'e_bad_ext', too_big: 'e_too_big', no_space: 'e_no_space', empty: 'e_empty', empty_chunk: 'e_empty', duplicate: 'e_duplicate', io: 'e_io' };
+        if (e && e.code === 'duplicate') { it.status = 'dup'; it.msg = t('dup'); it.loaded = 0; }
+        else { fail(it, map[e && e.code] || 'e_generic'); }
+        render(it);
+      });
+  }
+  // il server puo' cambiare lievemente il nome (caratteri non ammessi): confronto "morbido"
+  function sanitizeLike(n) { return n.toLowerCase(); }
+
+  function sendChunk(it, blob, offset) {
+    return new Promise(function (resolve, reject) {
+      var x = new XMLHttpRequest();
+      var url = 'upload.php?action=chunk&id=' + encodeURIComponent(it.id) + '&name=' + encodeURIComponent(it.name) +
+        '&offset=' + offset + '&total=' + it.size + '&mode=' + it.mode;
+      x.open('POST', url);
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.timeout = 180000;
+      x.upload.onprogress = function (e) { if (e.lengthComputable) { it.loaded = Math.min(it.size, offset + e.loaded); tick(it); } };
+      x.onload = function () { var j = {}; try { j = JSON.parse(x.responseText); } catch (e) {} resolve({ status: x.status, json: j }); };
+      x.onerror = x.ontimeout = x.onabort = function () { reject(new Error('net')); };
+      x.send(blob);
+    });
+  }
+
+  // ---------- interfaccia ----------
+  var rafPending = false, dirty = {};
+  function tick(it) { dirty[it.n] = it; if (!rafPending) { rafPending = true; requestAnimationFrame(function () { rafPending = false; Object.keys(dirty).forEach(function (k) { render(dirty[k], true); }); dirty = {}; refresh(); }); } }
+
+  function el(it) {
+    if (it.el) return it.el;
+    var li = document.createElement('li'); li.className = 'item';
+    li.innerHTML = '<div class="top"><span class="name"></span><span class="meta"></span></div><div class="state"></div>' +
+      '<div class="bar small"><i></i></div><div class="actions"></div>';
+    it.el = li; return li;
+  }
+  function render(it, light) {
+    if (it.status === 'removed') { if (it.el && it.el.parentNode) it.el.parentNode.removeChild(it.el); return; }
+    var li = el(it);
+    var isDone = it.status === 'done';
+    var target = $(isDone ? 'done' : 'queue');
+    if (li.parentNode !== target) {
+      if (isDone) target.insertBefore(li, target.firstChild); else target.appendChild(li);
+    }
+    li.className = 'item ' + it.status;
+    li.querySelector('.name').textContent = it.name;
+    var pct = it.size ? Math.floor(it.loaded * 100 / it.size) : 0;
+    li.querySelector('.meta').textContent = it.status === 'uploading' ? t('of', { a: fmtSize(it.loaded), b: fmtSize(it.size) }) : fmtSize(it.size);
+    var st = li.querySelector('.state');
+    var bar = li.querySelector('.bar');
+    var text;
+    if (it.status === 'uploading') text = (it.note ? it.note : t('uploading')) + ' ' + pct + '%';
+    else if (it.status === 'queued') text = t('waiting');
+    else if (it.status === 'checking') text = t('checking');
+    else text = it.msg || '';
+    st.textContent = text;
+    bar.classList.toggle('hidden', !(it.status === 'uploading' || it.status === 'queued'));
+    bar.firstChild.style.width = (it.status === 'queued' ? 0 : pct) + '%';
+    if (light) return;
+    var act = li.querySelector('.actions'); act.innerHTML = '';
+    function btn(label, cls, fn) { var b = document.createElement('button'); b.type = 'button'; b.className = 'btn ' + cls; b.textContent = label; b.onclick = fn; act.appendChild(b); }
+    if (it.status === 'dup') {
+      btn(t('upAnyway'), 'small', function () { it.mode = 'rename'; it.status = 'queued'; render(it); refresh(); pump(); });
+      btn(t('remove'), 'sec small', function () { it.status = 'removed'; render(it); refresh(); });
+    } else if (it.status === 'error') {
+      if (it.code !== 'e_bad_ext' && it.code !== 'e_empty' && it.code !== 'e_too_big') btn(t('retry'), 'small', function () { it.status = 'queued'; it.loaded = 0; it.msg = ''; render(it); refresh(); pump(); });
+      btn(t('remove'), 'sec small', function () { it.status = 'removed'; render(it); refresh(); });
+    }
+  }
+
+  function refresh() {
+    var live = items.filter(function (i) { return i.status !== 'removed'; });
+    var queue = live.filter(function (i) { return i.status !== 'done'; });
+    var done = live.filter(function (i) { return i.status === 'done'; });
+    $('queueSec').classList.toggle('hidden', queue.length === 0);
+    $('doneSec').classList.toggle('hidden', done.length === 0);
+    $('doneCount').textContent = done.length;
+    var tot = done.reduce(function (a, i) { return a + i.size; }, 0);
+    $('doneTotals').textContent = t('totals', { n: done.length, s: fmtSize(tot) });
+    var dups = live.filter(function (i) { return i.status === 'dup'; });
+    $('dupBulk').classList.toggle('hidden', dups.length < 2);
+
+    // avanzamento complessivo (conta i file in coda, in corso e completati; i duplicati in attesa no)
+    var counted = live.filter(function (i) { return i.status === 'uploading' || i.status === 'queued' || i.status === 'done' || i.status === 'checking'; });
+    var totalBytes = counted.reduce(function (a, i) { return a + i.size; }, 0);
+    var loaded = counted.reduce(function (a, i) { return a + i.loaded; }, 0);
+    var isBusy = busy();
+    $('summary').classList.toggle('show', counted.length > 0);
+    $('keepOpen').classList.toggle('show', isBusy);
+    var pct = totalBytes ? Math.floor(loaded * 100 / totalBytes) : 0;
+    $('totalFill').style.width = pct + '%';
+    $('totalBar').classList.toggle('busy', isBusy);
+    $('pct').textContent = pct + '%';
+    $('countTxt').textContent = t('count', { d: done.length, n: counted.length });
+    $('bytesTxt').textContent = t('of', { a: fmtSize(loaded), b: fmtSize(totalBytes) });
+
+    // velocità e tempo residuo (media mobile ~6 s)
+    var now = Date.now(); samples.push([now, loaded]);
+    while (samples.length > 2 && now - samples[0][0] > 6000) samples.shift();
+    var speed = 0;
+    if (samples.length > 1) { var a = samples[0], b = samples[samples.length - 1]; if (b[0] > a[0]) speed = Math.max(0, (b[1] - a[1]) / ((b[0] - a[0]) / 1000)); }
+    $('speedTxt').textContent = isBusy && speed > 0 ? t('speed', { s: fmtSize(speed) }) : '';
+    $('etaTxt').textContent = isBusy && speed > 1000 ? t('eta', { t: fmtTime((totalBytes - loaded) / speed) }) : '';
+
+    var ad = $('allDone');
+    var errs = live.some(function (i) { return i.status === 'error'; });
+    var showDone = !isBusy && done.length > 0 && !dups.length;
+    ad.classList.toggle('show', showDone);
+    ad.style.background = errs ? '#fff3cd' : ''; ad.style.color = errs ? '#7a5200' : ''; ad.style.borderColor = errs ? '#f0d98a' : '';
+    ad.textContent = errs ? t('allDoneErr') : t('allDone');
+  }
+  setInterval(function () { if (busy()) refresh(); }, 1000);
+
+  // ---------- testi e lingua ----------
+  function applyLang() {
+    document.documentElement.lang = lang;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (n) { n.textContent = t(n.getAttribute('data-t')); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
+    document.title = t('title');
+    items.forEach(function (it) { if (it.status === 'dup' && it.msg) it.msg = it.msg === TXT.it.dupSession || it.msg === TXT.es.dupSession || it.msg === TXT.en.dupSession ? t('dupSession') : t('dup'); if (it.status === 'done') it.msg = t('done') + (it.finalName && it.finalName.toLowerCase() !== it.name.toLowerCase() ? ' · ' + t('renamed', { n: it.finalName }) : ''); if (it.status === 'error' && it.code) it.msg = t(it.code); render(it); });
+    refresh();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) {
+    b.addEventListener('click', function () { lang = b.getAttribute('data-lang'); try { localStorage.setItem('upload-lang', lang); } catch (e) {} applyLang(); });
+  });
+
+  // ---------- selezione e trascinamento ----------
+  function onPick(e) { addFiles(e.target.files); e.target.value = ''; }
+  $('pick').addEventListener('change', onPick);
+  $('pickAny').addEventListener('change', onPick);
+  $('pickAnyBtn').addEventListener('click', function (e) { e.preventDefault(); $('pickAny').click(); });
+  var drop = $('drop');
+  ['dragenter', 'dragover'].forEach(function (ev) { document.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('over'); }); });
+  ['dragleave', 'drop'].forEach(function (ev) { document.addEventListener(ev, function (e) { e.preventDefault(); if (ev === 'drop' || e.target === document.documentElement || !e.relatedTarget) drop.classList.remove('over'); }); });
+  document.addEventListener('drop', function (e) { if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) addFiles(e.dataTransfer.files); });
+  $('dupAll').addEventListener('click', function () { items.forEach(function (i) { if (i.status === 'dup') { i.mode = 'rename'; i.status = 'queued'; render(i); } }); refresh(); pump(); });
+  $('dupNone').addEventListener('click', function () { items.forEach(function (i) { if (i.status === 'dup') { i.status = 'removed'; render(i); } }); refresh(); });
+
+  // ---------- avvio ----------
+  pickLang(); applyLang();
+  api('config').then(function (r) { if (r && r.ok) { cfg.chunk = r.chunk || cfg.chunk; cfg.maxFile = r.maxFile; } }).catch(function () {});
+})();
+</script>
+</body>
+</html>

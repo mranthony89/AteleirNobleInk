@@ -1,0 +1,16 @@
+# Impedisce di scaricare il file di configurazione
+<FilesMatch "^config\.php$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Niente elenco dei file e pagina non indicizzabile dai motori di ricerca
+Options -Indexes
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

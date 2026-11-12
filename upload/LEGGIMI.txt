@@ -1,0 +1,20 @@
+PAGINA DI CARICAMENTO FILE (foto e video)
+=========================================
+Serve un hosting con PHP (7.4 o successivo). Non e' collegata al sito: e' una pagina a parte.
+
+1) Scegli il nome della cartella: meglio uno difficile da indovinare, es.  invia-8k3x/
+2) Carica TUTTO il contenuto di questo zip in quella cartella dell'hosting (index.html, upload.php, config.php, .htaccess, .user.ini).
+3) Manda al cliente il link:  https://tuodominio/invia-8k3x/
+4) I file arrivano nella sottocartella  uploads/  (creata da sola). Li scarichi via FTP.
+
+COSA FA
+- Caricamento a pezzi: funziona anche con video da molti GB e con i limiti PHP bassi dei hosting.
+- Se la connessione cade, riprende da dove era arrivato (anche rifacendo la selezione).
+- Barra di avanzamento totale e per file, velocita', tempo residuo, schermo tenuto acceso.
+- Elenco dei file caricati nella sessione. Duplicati (stesso nome) segnalati: "Carica comunque" li salva come "nome (2).ext".
+- Italiano / Spagnolo / Inglese (si sceglie in automatico dal telefono).
+
+IMPOSTAZIONI: config.php (dimensione massima, formati accettati, cartella).
+SICUREZZA: la pagina e' senza password ma non indicizzabile; accetta solo formati foto/video/grafica
+(niente script o file eseguibili) e blocca l'esecuzione di PHP nella cartella uploads.
+SPAZIO: i file occupano spazio sull'hosting; controlla lo spazio libero.
