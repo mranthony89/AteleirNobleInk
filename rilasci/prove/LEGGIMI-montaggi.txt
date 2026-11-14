@@ -9,3 +9,7 @@ C) montaggio-C-scritte-verticale.mp4     (9:16, 33 s)  - solo le scritte/letteri
 
 Tutti hanno titolo e scheda finale con logo e indirizzo. Le musiche sono in musiche/ (si possono cambiare).
 Con i video in HD la resa sara' molto migliore (ora sono molto compressi).
+
+VERSIONE PER I SOCIAL (v2)
+montaggio-A2-social-orizzontale.mp4  (16:9, 43 s)
+- Montaggio A con apertura sulle scritte (come il C), musica del B, immagini rallentate al 60% (movimento interpolato per restare fluido).
