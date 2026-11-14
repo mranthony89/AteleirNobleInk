@@ -7,12 +7,11 @@ import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 // Foto di esempio (le stesse della galleria): stile -> immagine
 const STYLE_IMAGES = [
-  './gallery/gallery-1.webp', // fine line
-  './gallery/gallery-2.webp', // blackwork
-  './gallery/gallery-3.webp', // ornamentale
-  './gallery/gallery-4.webp', // realistico
-  './gallery/gallery-5.webp', // botanico
-  './gallery/gallery-6.webp', // geometrico
+  './gallery/gallery-1.webp', // realismo
+  './gallery/gallery-2.webp', // giapponese
+  './gallery/gallery-3.webp', // chicano
+  './gallery/gallery-4.webp', // fine line
+  './gallery/gallery-8.webp', // floreale
 ]
 const AVATARS = ['./team/tatuatore-1.webp', './team/tatuatore-2.webp', './team/tatuatore-3.webp']
 
@@ -120,7 +119,7 @@ export default function Styles() {
                 </dl>
 
                 <div className="flex items-center gap-3 mt-6">
-                  <img src={AVATARS[item.artist]} alt="" className="w-11 h-11 rounded-full object-cover border border-ink-gold/60" />
+                  <img src={AVATARS[item.artist]} alt="" className="w-11 h-11 rounded-full object-cover object-top border border-ink-gold/60" />
                   <div>
                     <p className="font-serif text-[10px] tracking-widest2 uppercase text-ink-stone">{t.styles.artistLabel}</p>
                     <p className="font-serif">{artist.name}</p>

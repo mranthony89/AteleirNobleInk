@@ -16,7 +16,7 @@ export const getPhoneDisplay = () => {
 
 // Film d'atelier: sostituisci il file in public/video/ per usare il video reale
 export const FILM_SRC = './video/atelier-film.mp4'
-export const FILM_POSTER = './gallery/gallery-4.webp'
+export const FILM_POSTER = './gallery/gallery-1.webp'
 
 // Apre WhatsApp (app o web) con il messaggio già scritto
 export function openWhatsApp(message = '') {

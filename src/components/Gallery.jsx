@@ -12,23 +12,25 @@ const photos = [
   './gallery/gallery-4.webp',
   './gallery/gallery-5.webp',
   './gallery/gallery-6.webp',
+  './gallery/gallery-7.webp',
+  './gallery/gallery-8.webp',
+  './gallery/gallery-9.webp',
 ]
 
-// Mosaico: la prima e l'ultima cella sono più grandi (variazione di ritmo)
+// Stile di ogni foto (indice in t.styles.items): realismo, giapponese, chicano, fine line, floreale
+const STYLE_OF = [0, 1, 2, 3, 0, 3, 4, 4, 3]
+
+// Mosaico: la prima foto è grande (2x2), le altre 8 quadrate: su desktop 4 file da 3 celle
 const CELL = [
   'col-span-2 md:col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto',
-  'aspect-square',
-  'aspect-square',
-  'aspect-square',
-  'aspect-square',
-  'col-span-2 md:col-span-1 aspect-[2/1] md:aspect-square',
+  ...Array(8).fill('aspect-square'),
 ]
 
 export default function Gallery() {
   const { t } = useLanguage()
   const [open, setOpen] = useState(null) // indice della foto aperta
 
-  const pieces = t.gallery.pieces
+  const pieces = STYLE_OF.map((i) => t.styles.items[i].label)
   const prev = useCallback(() => setOpen((i) => (i + photos.length - 1) % photos.length), [])
   const next = useCallback(() => setOpen((i) => (i + 1) % photos.length), [])
 
@@ -55,7 +57,7 @@ export default function Gallery() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
           {pieces.map((label, i) => (
-            <Reveal key={label} delay={(i % 3) * 0.08} y={36} className={CELL[i]}>
+            <Reveal key={i} delay={(i % 3) * 0.08} y={36} className={CELL[i]}>
               <button
                 type="button"
                 onClick={() => setOpen(i)}

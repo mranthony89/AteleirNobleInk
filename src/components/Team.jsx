@@ -24,11 +24,11 @@ export default function Team() {
                 className="group h-full rounded-2xl glass-dark p-8 flex flex-col items-center text-center hover:border-ink-gold/60 hover:shadow-gold transition-[box-shadow,border-color] duration-500"
               >
                 <div className="relative mb-6">
-                  <span className="absolute -inset-2 rounded-full border border-ink-gold/0 group-hover:border-ink-gold/60 group-hover:scale-105 transition-all duration-700" aria-hidden="true" />
+                  <span className="absolute -inset-2 rounded-[1.25rem] border border-ink-gold/0 group-hover:border-ink-gold/60 group-hover:scale-[1.02] transition-all duration-700" aria-hidden="true" />
                   <img
                     src={photos[i]}
                     alt={member.name}
-                    className="w-36 h-36 md:w-40 md:h-40 rounded-full object-cover border border-ink-gold/50"
+                    className="w-52 h-52 md:w-56 md:h-56 rounded-2xl object-cover object-top border border-ink-gold/50"
                   />
                 </div>
                 <p className="font-serif text-[10px] tracking-widest2 uppercase text-ink-gold mb-2">
