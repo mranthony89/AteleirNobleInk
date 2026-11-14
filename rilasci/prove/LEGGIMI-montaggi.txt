@@ -1,0 +1,11 @@
+PROVE DI MONTAGGIO (da approvare)
+=================================
+Fatte con i video WhatsApp (bassa risoluzione), audio originale tolto, musiche generate con IA (Gemini/Lyria).
+Nessun volto: i video 05 e 10 sono stati tagliati prima del punto in cui compare il viso.
+
+A) montaggio-A-elegante-orizzontale.mp4  (16:9, 32 s)  - trittico di 3 video affiancati con filetti dorati, pianoforte
+B) montaggio-B-ritmico-verticale.mp4     (9:16, 27 s)  - tagli rapidi con transizioni, musica moderna
+C) montaggio-C-scritte-verticale.mp4     (9:16, 33 s)  - solo le scritte/lettering, chitarra calma
+
+Tutti hanno titolo e scheda finale con logo e indirizzo. Le musiche sono in musiche/ (si possono cambiare).
+Con i video in HD la resa sara' molto migliore (ora sono molto compressi).
